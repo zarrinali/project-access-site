@@ -1,0 +1,419 @@
+.Home {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.Home h2 {
+  color: #fda929;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  font-family: "Poppins", "Ariel";
+  line-height: 3rem;
+}
+
+/* Header */
+.Home header {
+  position: relative;
+  /* height: 700px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header_text {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10rem 0 7rem;
+  z-index: 10;
+}
+.image_carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.image_carousel img {
+  width: 98.7vw;
+  max-height: 625px;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.header_text h1 {
+  color: #fda929;
+  font-size: 4.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  width: 80%;
+  text-align: center;
+  line-height: 6rem;
+  font-family: "Poppins", "Ariel";
+}
+.header_text p {
+  font-size: 1.3rem;
+  line-height: 2rem;
+  color: white;
+}
+.cta {
+  margin: 1rem 0;
+}
+
+/* Target Uni */
+.target_uni {
+  width: 70%;
+  margin: 7rem auto;
+  text-align: center;
+}
+.target_uni > p {
+  width: 70%;
+  margin: 0 auto 2rem;
+  font-size: 1.2rem;
+  line-height: 2rem;
+}
+.regions {
+  display: flex;
+  /* justify-content: space-between; */
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.region {
+  width: 290px;
+  height: 370px;
+  background-color: #2a3038;
+  border-radius: 20px;
+  padding: 2rem 2.1rem;
+  position: relative;
+  margin-top: 4rem;
+}
+.middle {
+  margin-right: 2rem;
+  margin-left: 2rem;
+}
+.flag {
+  width: 160px;
+  position: absolute;
+  top: -10%;
+  left: 65px;
+}
+.region h4 {
+  color: #fda929;
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-top: 2.5rem;
+  font-family: "Poppins", "Ariel";
+}
+.region p {
+  color: white;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  margin-top: 1.1rem;
+}
+
+/* Help */
+.help {
+  background-color: #eee;
+}
+.help_container {
+  width: 60%;
+  padding: 5rem 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.help h2 {
+  align-self: center;
+  text-align: center;
+}
+.icon {
+  font-size: 6rem;
+  color: #2a3038;
+  margin: 0 3rem;
+}
+.left {
+  text-align: left;
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+}
+.right {
+  text-align: right;
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+.help p {
+  width: 75%;
+  font-size: 1.25rem;
+  line-height: 2rem;
+}
+.help button {
+  font-size: 1.05rem;
+  width: 20%;
+  padding: 0.75rem 1rem;
+  border-radius: 50px;
+  outline: none;
+  border: none;
+  margin: 2rem auto 0;
+  background-color: #fda929;
+}
+.help button a {
+  color: white;
+  font-weight: 600;
+}
+
+/* Sign Up */
+.testimonials_signup {
+  width: 70%;
+  display: flex;
+  margin: 7rem auto;
+}
+.testimonials {
+  width: 50%;
+  padding: 2rem 4rem;
+  background-color: #2a3038;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.quote_left {
+  position: absolute;
+  color: #14161f;
+  opacity: 40%;
+  top: 40px;
+  left: 50px;
+  font-size: 7rem;
+}
+.quote_right {
+  position: absolute;
+  color: #14161f;
+  opacity: 40%;
+  bottom: 70px;
+  right: 50px;
+  font-size: 7rem;
+}
+.signup {
+  width: 50%;
+  padding: 2rem 4rem;
+  background-color: #fda929;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.signup h3 {
+  color: #2a3038;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  font-weight: 600;
+  font-family: "Poppins", "Ariel";
+}
+.signup p {
+  color: white;
+  font-size: 0.9rem;
+  line-height: 1.3rem;
+  margin: 0.5rem 0 1.75rem;
+}
+.signup form {
+  display: flex;
+  flex-direction: column;
+}
+.signiup label {
+  /* color: #2a3038; */
+  color: white;
+}
+.signup input {
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0 1.5rem;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+}
+.signup button {
+  font-size: 1.05rem;
+  width: 40%;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  outline: none;
+  border: none;
+  margin: 2rem auto 0;
+  background-color: #2a3038;
+  color: white;
+}
+.signup button:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 1334px) {
+  .region {
+    margin-right: 2rem;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .help button {
+    width: 30%;
+  }
+  .testimonials_signup {
+    width: 80%;
+  }
+  .signup {
+    padding: 2rem 2.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .header_text {
+    margin: 12% 0 5%;
+  }
+  .header_text h1 {
+    font-size: 4rem;
+  }
+  .target_uni > p {
+    width: 90%;
+  }
+  .regions {
+    justify-content: center;
+  }
+  .left {
+    flex-direction: column;
+    text-align: center;
+  }
+  .right {
+    flex-direction: column;
+    text-align: center;
+  }
+  .icon {
+    margin: 2rem 0;
+    font-size: 7rem;
+  }
+  .help p {
+    width: 85%;
+  }
+  .help button {
+    width: 40%;
+  }
+  .testimonials_signup {
+    flex-direction: column;
+    align-items: center;
+  }
+  .testimonials {
+    width: 85%;
+    padding: 2rem 4rem;
+    min-height: 400px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 0;
+  }
+  .signup {
+    width: 85%;
+    padding: 2rem 4rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+}
+@media (max-width: 600px) {
+  .header_text {
+    margin: 12% 0 4.5%;
+  }
+  .header_text h1 {
+    font-size: 3.5rem;
+    line-height: 4rem;
+    margin-bottom: 1.5rem;
+  }
+  .header_text p {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+  }
+  .Home h2 {
+    font-size: 2.3rem;
+  }
+}
+@media (max-width: 510px) {
+  .header_text h1 {
+    width: 100%;
+    font-size: 3.25rem;
+  }
+  .header_text p {
+    line-height: 1.4rem;
+  }
+  .region {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .testimonials {
+    width: 100%;
+    min-height: 500px;
+  }
+  .signup {
+    width: 100%;
+  }
+}
+@media (max-width: 425px) {
+  .header_text {
+    margin: 10% 0 2%;
+  }
+  .header_text h1 {
+    margin-bottom: 0.5rem;
+  }
+  .header_text p {
+    line-height: 1.1rem;
+  }
+  .region {
+    width: 310px;
+    height: 390px;
+  }
+  .flag {
+    top: -10%;
+    left: 70px;
+  }
+  .help_container {
+    width: 90%;
+  }
+  .help button {
+    width: 55%;
+  }
+  .testimonials,
+  .signup {
+    padding: 2rem 2.5rem;
+  }
+  .signup button {
+    width: 50%;
+  }
+}
+@media (max-width: 380px) {
+  .header_text {
+    margin: 10% 0 0;
+  }
+  .header_text h1 {
+    line-height: 3rem;
+    font-size: 3rem;
+  }
+  .region {
+    width: 310px;
+    min-height: 430px;
+  }
+  .flag {
+    top: -10%;
+    left: 20%;
+  }
+}
+@media (max-width: 320px) {
+  .header_text h1 {
+    font-size: 2rem;
+  }
+  .region {
+    width: 310px;
+    height: 490px;
+  }
+  .flag {
+    top: -10%;
+    left: 15%;
+  }
+  .signup button {
+    width: 60%;
+  }
+}

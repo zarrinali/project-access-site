@@ -1,0 +1,98 @@
+.Nav {
+  background-color: #eee;
+  z-index: 100;
+}
+nav {
+  display: flex;
+  width: 80%;
+  padding: 2rem 0;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+}
+nav div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+ul {
+  display: flex;
+  height: auto;
+  /* transition: height 2s ease-in-out; */
+}
+li {
+  list-style: none;
+  margin-left: 3.5rem;
+}
+li a {
+  font-size: 1.2rem;
+  color: black;
+}
+li a:hover {
+  color: #fda929;
+}
+.Nav img {
+  width: 5rem;
+  height: 5rem;
+}
+.Nav button {
+  font-size: 30px;
+  margin-right: 30px;
+  color: #2a3038;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  float: right;
+  display: none;
+}
+.show-nav {
+  height: 100%;
+}
+@media screen and (max-width: 1024px) {
+  li {
+    margin-left: 2.5rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  nav {
+    align-items: flex-start;
+    padding: 1.5rem 0;
+  }
+  .Nav img {
+    width: 4rem;
+    height: 4rem;
+  }
+  .Nav button {
+    display: initial;
+    margin-top: 1rem;
+  }
+  ul {
+    flex-direction: column;
+    height: 0;
+    overflow: hidden;
+    margin-top: 1rem;
+  }
+  li {
+    padding: 0.5rem 0;
+    text-align: right;
+    margin-right: 2.3rem;
+  }
+}
+@media screen and (max-width: 425px) {
+  nav {
+    align-items: flex-start;
+    padding: 1rem 0;
+  }
+  .Nav img {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  .Nav button {
+    margin-top: 0.6rem;
+    margin-right: 15px;
+  }
+  li {
+    margin-right: 1.6rem;
+  }
+}

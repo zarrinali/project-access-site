@@ -1,0 +1,31 @@
+.Footer {
+  background-color: #eee;
+}
+.Footer .container {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  padding: 2rem 0;
+  margin: 0 auto;
+  align-items: center;
+  color: #2a3038;
+}
+small {
+  font-size: 0.85rem;
+}
+.social {
+  font-size: 1.5rem;
+  margin-left: 2rem;
+  color: #2a3038;
+}
+@media (max-width: 425px) {
+  .Footer .container {
+    flex-direction: column-reverse;
+  }
+  .social {
+    margin: 1rem;
+  }
+  small {
+    margin-top: 1rem;
+  }
+}
