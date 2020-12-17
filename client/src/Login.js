@@ -1,17 +1,19 @@
-import React from "react";
-import styles from "./Login.module.css";
-import logo from "./assets/images/austria.png";
-import key from "./assets/images/logo_key_white.png";
+import React from 'react';
+import styles from './Login.module.css';
+import logo from './assets/images/austria.png';
+import key from './assets/images/logo_key_white.png';
+import axios from 'axios';
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
@@ -22,6 +24,31 @@ class Login extends React.Component {
     this.setState({
       [name]: value,
     });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+    const user = {
+      email: this.state.email,
+      password: this.state.password,
+    };
+
+    axios
+      .post('http://localhost:9000/auth/login', { user })
+      .then((res) => {
+        console.log(res);
+        return res;
+      })
+      .then((res) => {
+        return (
+          <div>
+            {res.data.token}
+            {res.data.message}
+          </div>
+        );
+      })
+      .catch((err) => console.log(err));
   }
 
   render() {

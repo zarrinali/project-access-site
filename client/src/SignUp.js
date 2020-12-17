@@ -1,17 +1,19 @@
-import React from "react";
-import styles from "./SignUp.module.css";
-import logo from "./assets/images/austria.png";
-import key from "./assets/images/logo_key_white.png";
+import React from 'react';
+import styles from './SignUp.module.css';
+import logo from './assets/images/austria.png';
+import key from './assets/images/logo_key_white.png';
+import axios from 'axios';
 
 class SignUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      name: "",
+      email: '',
+      password: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
@@ -22,6 +24,32 @@ class SignUp extends React.Component {
     this.setState({
       [name]: value,
     });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+    const user = {
+      email: this.state.email,
+      password: this.state.password,
+    };
+
+    axios
+      .post('http://localhost:9000/auth/signup', { user })
+      .then((res) => {
+        console.log(res);
+        return res;
+      })
+      .then((res) => {
+        return (
+          <div>
+            {res.data.user.record_id}
+            {res.data.user.email}
+            {res.data.message}
+          </div>
+        );
+      })
+      .catch((err) => console.log(err));
   }
 
   render() {
@@ -35,21 +63,21 @@ class SignUp extends React.Component {
             <h1>Sign Up</h1>
             <img src={key} className={styles.key} alt="key" />
             <form onSubmit={this.handleSubmit}>
-              <label for="name">First and Last Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={this.state.name}
-                onChange={this.handleChange}
-                required
-              />
               <label for="email">Email</label>
               <input
                 type="email"
                 id="email"
                 name="email"
                 value={this.state.email}
+                onChange={this.handleChange}
+                required
+              />
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                value={this.state.password}
                 onChange={this.handleChange}
                 required
               />
