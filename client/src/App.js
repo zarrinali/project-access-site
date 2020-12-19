@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./Home.js";
 import Login from "./Login.js";
 import SignUp from "./SignUp.js";
+import Program from "./Program.js";
+import Bootcamp from "./Bootcamp.js";
 
 class App extends Component {
   constructor(props) {
@@ -35,6 +37,12 @@ class App extends Component {
             </Route>
             <Route exact path="/signup">
               <SignUp />
+            </Route>
+            <Route exact path="/program">
+              <Program />
+            </Route>
+            <Route exact path="/bootcamp">
+              <Bootcamp />
             </Route>
           </Switch>
         </Router>

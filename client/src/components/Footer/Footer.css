@@ -1,22 +1,62 @@
 .Footer {
   background-color: #eee;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .Footer .container {
   display: flex;
   justify-content: space-between;
   width: 80%;
-  padding: 2rem 0;
+  padding: 3rem 0;
   margin: 0 auto;
   align-items: center;
   color: #2a3038;
 }
 small {
-  font-size: 0.85rem;
+  font-size: 1.4rem;
 }
 .social {
-  font-size: 1.5rem;
-  margin-left: 2rem;
+  font-size: 2.1rem;
+  margin-left: 2.4rem;
   color: #2a3038;
+}
+@media (max-width: 2000px) {
+  .Footer .container {
+    padding: 2rem 0;
+  }
+  small {
+    font-size: 1.25rem;
+  }
+  .social {
+    font-size: 1.8rem;
+    margin-left: 2.2rem;
+  }
+}
+@media (max-width: 1800px) {
+  small {
+    font-size: 1.15rem;
+  }
+  .social {
+    font-size: 1.7rem;
+    margin-left: 2.1rem;
+  }
+}
+@media (max-width: 1600px) {
+  small {
+    font-size: 1rem;
+  }
+  .social {
+    font-size: 1.6rem;
+    margin-left: 2rem;
+  }
+}
+@media (max-width: 1440px) {
+  small {
+    font-size: 0.85rem;
+  }
+  .social {
+    font-size: 1.5rem;
+    margin-left: 2rem;
+  }
 }
 @media (max-width: 425px) {
   .Footer .container {

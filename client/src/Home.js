@@ -55,6 +55,7 @@ class Home extends React.Component {
         <main>
           <section className={styles.target_uni}>
             <h2>Target Universities</h2>
+            <hr />
             <p>
               Our expertise lies in the application to so-called "top
               universities", i.e. selective universities that are characterized
@@ -100,6 +101,7 @@ class Home extends React.Component {
           <section className={styles.help}>
             <div className={styles.help_container}>
               <h2>How we can help you</h2>
+              <hr />
               <div className={styles.left}>
                 <FontAwesomeIcon icon={faUser} className={styles.icon} />
                 <p>
@@ -128,7 +130,7 @@ class Home extends React.Component {
                 </p>
               </div>
               <button>
-                <a href="/">Learn More</a>
+                <a href="/program">Learn More</a>
               </button>
             </div>
           </section>

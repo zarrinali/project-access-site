@@ -1,0 +1,478 @@
+.Program {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.Program h2 {
+  color: #fda929;
+  font-size: 3.8rem;
+  font-weight: 600;
+  font-family: "Poppins", "Ariel";
+  line-height: 4.5rem;
+}
+hr {
+  border: dotted #fda929 6px;
+  border-bottom: none;
+  width: 10%;
+  margin: 2rem auto;
+}
+hr ~ p {
+  font-size: 1.2rem;
+  line-height: 2.2rem;
+}
+.support p {
+  font-size: 1.7rem;
+  line-height: 3rem;
+}
+
+/* Header */
+.Program header {
+  background-image: url("./assets/images/header_img2.jpg");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header_text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 12rem 0;
+  z-index: 10;
+}
+.header_text h1 {
+  color: #fda929;
+  font-size: 6.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  width: 80%;
+  text-align: center;
+  line-height: 8rem;
+  font-family: "Poppins", "Ariel";
+}
+.cta {
+  font-size: 2.3rem;
+  line-height: 3rem;
+  color: white;
+}
+
+/* Containers */
+.container {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 10rem 0;
+}
+.gray {
+  background-color: #eee;
+}
+
+/* Support */
+.support {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Infographic */
+.infographic .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Program Details */
+.program_details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 65%;
+}
+.program_details .even {
+  display: flex;
+  flex-direction: row;
+  margin: 1rem 0;
+  justify-content: space-between;
+  width: 100%;
+}
+.program_details .odd {
+  display: flex;
+  flex-direction: row-reverse;
+  margin: 1rem 0;
+  justify-content: space-between;
+  width: 100%;
+}
+.txt_container {
+  width: 48.5%;
+  line-height: 1.6rem;
+  background-color: #2a3038;
+  color: white;
+  padding: 3rem 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.txt_container h3 {
+  color: #fda929;
+  font-size: 2.8rem;
+  line-height: 3.7rem;
+}
+.txt_container h5 {
+  font-size: 2.1rem;
+  font-weight: 500;
+  margin: 2rem 0;
+  line-height: 2.4rem;
+}
+.txt_container .summary {
+  font-size: 1.7rem;
+  line-height: 2.5rem;
+}
+.txt_container .list {
+  text-align: left;
+  margin: 2rem 0 1.5rem;
+  font-size: 1.5rem;
+  line-height: 2.3rem;
+}
+.txt_container ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  margin: 0.5rem 0 0;
+  list-style: initial;
+}
+.txt_container li {
+  margin: 0.5rem 3rem;
+}
+.txt_container .list ~ p {
+  font-size: 1.5rem;
+  line-height: 2.3rem;
+}
+.img_container1 {
+  background-image: url("./assets/images/header_img1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 48.5%;
+}
+.img_container2 {
+  background-image: url("./assets/images/header_img1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 48.5%;
+}
+.img_container3 {
+  background-image: url("./assets/images/header_img1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 48.5%;
+}
+
+@media (max-width: 2200px) {
+  .Program h2 {
+    font-size: 3.5rem;
+    line-height: 3.8rem;
+  }
+  .support p {
+    font-size: 1.5rem;
+    line-height: 2.7rem;
+  }
+  .header_text {
+    margin: 10rem 0;
+  }
+  .header_text h1 {
+    font-size: 6rem;
+    line-height: 7.5rem;
+  }
+  .header_text p {
+    font-size: 2.1rem;
+    line-height: 2.7rem;
+  }
+  .program_details {
+    width: 70%;
+  }
+  .txt_container h3 {
+    font-size: 2.5rem;
+    line-height: 3.4rem;
+  }
+  .txt_container h5 {
+    font-size: 1.9rem;
+    line-height: 2.1rem;
+  }
+  .txt_container .summary {
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+  }
+  .txt_container .list {
+    margin: 2rem 0 1.5rem;
+    font-size: 1.35rem;
+    line-height: 2rem;
+  }
+  .txt_container .list ~ p {
+    font-size: 1.35rem;
+    line-height: 2rem;
+  }
+}
+@media (max-width: 2000px) {
+  .program_details {
+    width: 75%;
+  }
+}
+@media (max-width: 1800px) {
+  .Program h2 {
+    font-size: 3rem;
+    line-height: 3.8rem;
+  }
+  .support p {
+    font-size: 1.2rem;
+    line-height: 2.2rem;
+  }
+  .container {
+    padding: 5rem 0;
+  }
+  .header_text {
+    margin: 10rem 0 7rem;
+  }
+  .header_text h1 {
+    font-size: 5.5rem;
+    line-height: 7rem;
+  }
+  .header_text p {
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+  }
+  .program_details {
+    width: 80%;
+  }
+  .txt_container {
+    padding: 3rem 4rem;
+  }
+  .txt_container h3 {
+    font-size: 2.3rem;
+    line-height: 3.2rem;
+  }
+  .txt_container h5 {
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+  }
+  .txt_container .summary {
+    font-size: 1.3rem;
+    line-height: 2rem;
+  }
+  .txt_container .list {
+    margin: 2rem 0 1.5rem;
+    font-size: 1.15rem;
+    line-height: 1.9rem;
+  }
+  .txt_container .list ~ p {
+    font-size: 1.3rem;
+    line-height: 2rem;
+  }
+}
+@media (max-width: 1500px) {
+  .header_text h1 {
+    font-size: 4.5rem;
+    line-height: 6rem;
+  }
+  .header_text p {
+    font-size: 1.3rem;
+    line-height: 2rem;
+  }
+  .infographic img {
+    max-width: 700px;
+  }
+  .program_details {
+    width: 85%;
+  }
+  .txt_container {
+    padding: 3rem 3.5rem;
+  }
+  .txt_container h3 {
+    font-size: 2rem;
+    line-height: 2.7rem;
+  }
+  .txt_container h5 {
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+  }
+  .txt_container .list {
+    margin: 1.5rem 0 0;
+  }
+}
+@media (max-width: 1334px) {
+  .program_details {
+    width: 90%;
+  }
+  .txt_container .summary {
+    font-size: 1rem;
+    line-height: 1.8rem;
+  }
+  .txt_container ul {
+    margin: 1rem 0;
+  }
+  .txt_container .list {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  .txt_container li {
+    margin: 0.5rem 2.2rem;
+  }
+  .txt_container .list ~ p {
+    font-size: 1rem;
+    line-height: 1.8rem;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .program_details {
+    width: 70%;
+  }
+  .txt_container {
+    padding: 3rem 5rem;
+    width: 100%;
+  }
+  .img_container1,
+  .img_container2,
+  .img_container3 {
+    display: none;
+  }
+  .infographic img {
+    max-width: 600px;
+  }
+}
+@media (max-width: 768px) {
+  .Program h2 {
+    font-size: 2.5rem;
+    line-height: 3.3rem;
+  }
+  .header_text {
+    margin: 15% 2%;
+  }
+  .header_text h1 {
+    font-size: 4rem;
+  }
+  .header_text p {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    text-align: center;
+  }
+  .container {
+    width: 80%;
+  }
+  .infographic img {
+    max-width: 500px;
+  }
+  .txt_container {
+    padding: 3rem 3.5rem;
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .Program h2 {
+    font-size: 2.3rem;
+  }
+  .header_text {
+    margin: 20% 3%;
+  }
+  .header_text h1 {
+    font-size: 3.5rem;
+    line-height: 4rem;
+    margin-bottom: 1.5rem;
+  }
+  .header_text p {
+    font-size: 1.1rem;
+    line-height: 1.6rem;
+  }
+  .infographic img {
+    max-width: 450px;
+  }
+  .txt_container {
+    padding: 3rem;
+  }
+  .txt_container h3 {
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+  }
+  .txt_container h5 {
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+  .txt_container li {
+    margin: 0.5rem 1.8rem 0.5rem 2rem;
+  }
+}
+@media (max-width: 510px) {
+  .header_text h1 {
+    width: 100%;
+    font-size: 3.25rem;
+  }
+  .header_text p {
+    line-height: 1.3rem;
+  }
+  .support p {
+    font-size: 0.9rem;
+  }
+  .infographic img {
+    max-width: 400px;
+  }
+  .txt_container {
+    padding: 3rem 2.7rem;
+  }
+  .txt_container .summary {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+  }
+  .txt_container .list {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+  }
+  .txt_container .list ~ p {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+  }
+}
+@media (max-width: 425px) {
+  .Program h2 {
+    font-size: 2rem;
+  }
+  .header_text h1 {
+    margin-bottom: 0.5rem;
+    font-size: 3rem;
+  }
+  .header_text p {
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+  }
+  .infographic img {
+    max-width: 350px;
+  }
+  .txt_container li {
+    margin: 0.5rem 1.3rem;
+  }
+}
+@media (max-width: 380px) {
+  .header_text h1 {
+    line-height: 3rem;
+    font-size: 3rem;
+  }
+  .infographic img {
+    max-width: 300px;
+  }
+  .txt_container {
+    padding: 3rem 2.3rem;
+  }
+}
+@media (max-width: 320px) {
+  .header_text h1 {
+    font-size: 2.7rem;
+  }
+  .infographic img {
+    max-width: 250px;
+  }
+}

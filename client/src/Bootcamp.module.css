@@ -1,0 +1,547 @@
+.Bootcamp {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.Bootcamp h2 {
+  color: #fda929;
+  font-size: 3.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  font-family: "Poppins", "Ariel";
+  line-height: 4.5rem;
+}
+hr {
+  border: dotted #fda929 6px;
+  border-bottom: none;
+  width: 10%;
+  margin: 2rem auto;
+}
+hr ~ p {
+  font-size: 1.2rem;
+  line-height: 2.2rem;
+}
+.how p,
+.description p,
+.col p {
+  font-size: 1.7rem;
+  line-height: 3rem;
+}
+
+/* Header */
+.Bootcamp header {
+  background-image: url("./assets/images/header_img1.jpg");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header_text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 12rem 0;
+  z-index: 10;
+}
+.header_text h1 {
+  color: #fda929;
+  font-size: 6.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  width: 80%;
+  text-align: center;
+  line-height: 8rem;
+  font-family: "Poppins", "Ariel";
+}
+.cta {
+  font-size: 2.3rem;
+  line-height: 3rem;
+  color: white;
+}
+
+/* Containers */
+.container {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 10rem 0;
+}
+.gray {
+  background-color: #eee;
+}
+
+/* Bootcamp 2021 */
+.description button {
+  font-size: 1.8rem;
+  width: 25%;
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  outline: none;
+  border: none;
+  margin: 4rem auto 0;
+  background-color: #fda929;
+}
+.description button a {
+  color: white;
+  font-weight: 600;
+}
+
+/* Schedule */
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4rem;
+}
+.odd {
+  flex-direction: row-reverse;
+}
+.even .card {
+  background-color: #fda929;
+}
+.odd .card {
+  background-color: #2a3038;
+}
+.col {
+  width: 40%;
+}
+.card {
+  padding: 4.5rem;
+  border-radius: 20px;
+}
+.cardBg {
+  padding: 12rem 0;
+}
+.card h3 {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+.even h3 {
+  color: #2a3038;
+}
+.odd h3 {
+  color: #fda929;
+}
+.card h4 {
+  font-size: 1.8rem;
+  margin-top: 1.3rem;
+  color: white;
+}
+.list {
+  display: flex;
+  flex-direction: column;
+}
+.col p {
+  margin: 0.35rem 0;
+}
+
+/* FAQ */
+.faqDropdown {
+  margin: 2rem 0;
+}
+
+/* Sign Up */
+.testimonials_signup {
+  width: 55%;
+  display: flex;
+  margin: 10rem auto;
+}
+.testimonials {
+  width: 50%;
+  padding: 3rem 5rem;
+  background-color: #2a3038;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.quote_left {
+  position: absolute;
+  color: #14161f;
+  opacity: 40%;
+  top: 140px;
+  left: 70px;
+  font-size: 7rem;
+}
+.quote_right {
+  position: absolute;
+  color: #14161f;
+  opacity: 40%;
+  bottom: 150px;
+  right: 80px;
+  font-size: 7rem;
+}
+.signup {
+  width: 50%;
+  padding: 3rem 5rem;
+  background-color: #fda929;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.signup h3 {
+  color: #2a3038;
+  font-size: 2.6rem;
+  line-height: 3.2rem;
+  font-weight: 600;
+  font-family: "Poppins", "Ariel";
+}
+.signup p {
+  color: white;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin: 1rem 0 1.75rem;
+}
+.signup form {
+  display: flex;
+  flex-direction: column;
+}
+.signup label {
+  font-size: 1.8rem;
+  color: white;
+}
+.signup input {
+  font-size: 1.8rem;
+  padding: 0.75rem 1.5rem;
+  margin: 1rem 0 1.5rem;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+}
+.signup button {
+  font-size: 1.7rem;
+  width: 50%;
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  outline: none;
+  border: none;
+  margin: 2rem auto 0;
+  background-color: #2a3038;
+  color: white;
+}
+.signup button:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 2200px) {
+  .Bootcamp h2 {
+    font-size: 3.5rem;
+    line-height: 3.8rem;
+  }
+  .how p,
+  .description p,
+  .col p {
+    font-size: 1.5rem;
+    line-height: 2.7rem;
+  }
+  .header_text {
+    margin: 10rem 0;
+  }
+  .header_text h1 {
+    font-size: 6rem;
+    line-height: 7.5rem;
+  }
+  .header_text p {
+    font-size: 2.1rem;
+    line-height: 2.7rem;
+  }
+  .signup h3 {
+    font-size: 2.1rem;
+    line-height: 2.8rem;
+  }
+  .signup p {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+  }
+  .signup label {
+    font-size: 1.3rem;
+  }
+  .signup input {
+    font-size: 1.5rem;
+  }
+  .signup button {
+    font-size: 1.3rem;
+    width: 40%;
+  }
+}
+@media (max-width: 2000px) {
+  .card h3 {
+    font-size: 2.3rem;
+  }
+  .card h4 {
+    font-size: 1.6rem;
+  }
+  .testimonials_signup {
+    width: 60%;
+  }
+  .testimonials {
+    padding: 3rem 4rem;
+  }
+  .signup {
+    padding: 3rem 4rem;
+  }
+}
+@media (max-width: 1800px) {
+  .Bootcamp h2 {
+    font-size: 3rem;
+    line-height: 3.8rem;
+  }
+  .how p,
+  .description p,
+  .col p {
+    font-size: 1.2rem;
+    line-height: 2.2rem;
+  }
+  .container {
+    padding: 5rem 0;
+  }
+  .header_text {
+    margin: 10rem 0 7rem;
+  }
+  .header_text h1 {
+    font-size: 5.5rem;
+    line-height: 7rem;
+  }
+  .header_text p {
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+  }
+  .card {
+    padding: 3rem;
+  }
+  .cardBg {
+    padding: 10rem 0;
+  }
+  .testimonials_signup {
+    margin: 7rem auto;
+  }
+  .testimonials {
+    padding: 3rem;
+  }
+  .signup {
+    padding: 3rem;
+  }
+  .quote_left {
+    top: 40px;
+    left: 50px;
+    font-size: 7rem;
+  }
+  .quote_right {
+    bottom: 70px;
+    right: 50px;
+    font-size: 7rem;
+  }
+  .signup h3 {
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+  }
+  .signup p {
+    font-size: 0.9rem;
+    line-height: 1.3rem;
+    margin: 0.5rem 0 1.75rem;
+  }
+  .signup label {
+    font-size: 1rem;
+  }
+  .signup input {
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0 1.5rem;
+  }
+  .signup button {
+    font-size: 1.05rem;
+    width: 40%;
+    padding: 0.5rem 1rem;
+    margin: 2rem auto 0;
+  }
+}
+@media (max-width: 1500px) {
+  .header_text h1 {
+    font-size: 4.5rem;
+    line-height: 6rem;
+  }
+  .header_text p {
+    font-size: 1.3rem;
+    line-height: 2rem;
+  }
+  .description button {
+    font-size: 1.1rem;
+    width: 20%;
+    padding: 0.75rem 1rem;
+    margin: 3rem auto 0;
+  }
+  .schedule,
+  .faq .container {
+    width: 60%;
+  }
+  .card h3 {
+    font-size: 2rem;
+  }
+  .card h4 {
+    font-size: 1.4rem;
+    margin-top: 1rem;
+  }
+  .testimonials_signup {
+    width: 65%;
+  }
+}
+@media (max-width: 1334px) {
+  .schedule,
+  .faq .container {
+    width: 70%;
+  }
+  .testimonials_signup {
+    width: 70%;
+  }
+  .testimonials {
+    padding: 2rem 3rem;
+  }
+  .signup {
+    padding: 2rem 3rem;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .faq .container {
+    width: 80%;
+  }
+  .testimonials_signup {
+    width: 80%;
+  }
+  .signup {
+    padding: 2rem 2.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .Bootcamp h2 {
+    font-size: 2.5rem;
+    line-height: 3.3rem;
+  }
+  .header_text {
+    margin: 15% 2%;
+  }
+  .header_text h1 {
+    font-size: 4rem;
+  }
+  .header_text p {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    text-align: center;
+  }
+  .container {
+    width: 80%;
+  }
+  .description button {
+    width: 25%;
+  }
+  .testimonials_signup {
+    flex-direction: column;
+    align-items: center;
+  }
+  .testimonials {
+    width: 85%;
+    padding: 2rem 4rem;
+    min-height: 400px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 0;
+  }
+  .signup {
+    width: 85%;
+    padding: 2rem 4rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+}
+@media (max-width: 600px) {
+  .Bootcamp h2 {
+    font-size: 2.3rem;
+  }
+  .header_text {
+    margin: 20% 3%;
+  }
+  .header_text h1 {
+    font-size: 3.5rem;
+    line-height: 4rem;
+    margin-bottom: 1.5rem;
+  }
+  .header_text p {
+    font-size: 1.1rem;
+    line-height: 1.6rem;
+  }
+  .description button {
+    width: 35%;
+  }
+  .row {
+    flex-direction: column;
+    margin-top: 3rem;
+  }
+  .col {
+    width: 90%;
+  }
+  .card {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .cardBg {
+    padding: 1.5rem 0;
+  }
+  .col p {
+    line-height: 1.8rem;
+  }
+}
+@media (max-width: 510px) {
+  .header_text h1 {
+    width: 100%;
+    font-size: 3.25rem;
+  }
+  .header_text p {
+    line-height: 1.3rem;
+  }
+  .how p,
+  .description p {
+    font-size: 0.9rem;
+  }
+  .testimonials {
+    width: 100%;
+    min-height: 500px;
+  }
+  .signup {
+    width: 100%;
+  }
+}
+@media (max-width: 425px) {
+  .Bootcamp h2 {
+    font-size: 2rem;
+  }
+  .header_text h1 {
+    margin-bottom: 0.5rem;
+    font-size: 3rem;
+  }
+  .header_text p {
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+  }
+  .testimonials,
+  .signup {
+    padding: 2rem 2.5rem;
+  }
+  .signup button {
+    width: 50%;
+  }
+}
+@media (max-width: 380px) {
+  .header_text h1 {
+    line-height: 3rem;
+    font-size: 3rem;
+  }
+}
+@media (max-width: 320px) {
+  .header_text h1 {
+    font-size: 2.7rem;
+  }
+  .signup button {
+    width: 60%;
+  }
+}

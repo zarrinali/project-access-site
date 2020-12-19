@@ -15,7 +15,9 @@ class Nav extends Component {
     return (
       <div className="Nav">
         <nav>
-          <img src={logo} className="logo" alt="logo" />
+          <a href="/">
+            <img src={logo} className="logo" alt="logo" />
+          </a>
           <div>
             <button onClick={this.Toggle}>
               <FaAlignRight />
@@ -27,10 +29,10 @@ class Nav extends Component {
                 <a href="/">About Us</a>
               </li>
               <li>
-                <a href="/">Program</a>
+                <a href="/program">Program</a>
               </li>
               <li>
-                <a href="/">Bootcamp</a>
+                <a href="/bootcamp">Bootcamp</a>
               </li>
               <li>
                 <a href="/">Events</a>

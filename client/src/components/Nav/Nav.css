@@ -1,6 +1,7 @@
 .Nav {
   background-color: #eee;
   z-index: 100;
+  font-family: Arial, Helvetica, sans-serif;
 }
 nav {
   display: flex;
@@ -15,25 +16,25 @@ nav div {
   flex-direction: column;
   align-items: flex-end;
 }
-ul {
+.Nav ul {
   display: flex;
   height: auto;
   /* transition: height 2s ease-in-out; */
 }
-li {
+.Nav li {
   list-style: none;
-  margin-left: 3.5rem;
+  margin-left: 4.5rem;
 }
 li a {
-  font-size: 1.2rem;
+  font-size: 2rem;
   color: black;
 }
 li a:hover {
   color: #fda929;
 }
 .Nav img {
-  width: 5rem;
-  height: 5rem;
+  width: 8.5rem;
+  height: 8.5rem;
 }
 .Nav button {
   font-size: 30px;
@@ -46,11 +47,56 @@ li a:hover {
   float: right;
   display: none;
 }
-.show-nav {
+.Nav .show-nav {
   height: 100%;
 }
+@media (max-width: 2200px) {
+  .Nav li {
+    margin-left: 4.2rem;
+  }
+  li a {
+    font-size: 1.8rem;
+  }
+  .Nav img {
+    width: 8rem;
+    height: 8rem;
+  }
+}
+@media (max-width: 2000px) {
+  .Nav li {
+    margin-left: 3.8rem;
+  }
+  li a {
+    font-size: 1.6rem;
+  }
+  .Nav img {
+    width: 7rem;
+    height: 7rem;
+  }
+}
+@media (max-width: 1800px) {
+  .Nav li {
+    margin-left: 3.5rem;
+  }
+  li a {
+    font-size: 1.5rem;
+  }
+  .Nav img {
+    width: 6rem;
+    height: 6rem;
+  }
+}
+@media (max-width: 1600px) {
+  li a {
+    font-size: 1.2rem;
+  }
+  .Nav img {
+    width: 5rem;
+    height: 5rem;
+  }
+}
 @media screen and (max-width: 1024px) {
-  li {
+  .Nav li {
     margin-left: 2.5rem;
   }
 }
@@ -67,13 +113,13 @@ li a:hover {
     display: initial;
     margin-top: 1rem;
   }
-  ul {
+  .Nav ul {
     flex-direction: column;
     height: 0;
     overflow: hidden;
     margin-top: 1rem;
   }
-  li {
+  .Nav li {
     padding: 0.5rem 0;
     text-align: right;
     margin-right: 2.3rem;
@@ -92,7 +138,7 @@ li a:hover {
     margin-top: 0.6rem;
     margin-right: 15px;
   }
-  li {
+  .Nav li {
     margin-right: 1.6rem;
   }
 }
