@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import logo from "../../assets/images/austria.png";
-import "./Nav.css";
-import { FaAlignRight } from "react-icons/fa";
+import React, { Component } from 'react';
+import logo from '../../assets/images/austria.png';
+import './Nav.css';
+import { FaAlignRight } from 'react-icons/fa';
 
 class Nav extends Component {
   state = {
@@ -22,12 +22,7 @@ class Nav extends Component {
             <button onClick={this.Toggle}>
               <FaAlignRight />
             </button>
-            <ul
-              className={this.state.toggle ? "nav-links show-nav" : "nav-links"}
-            >
-              <li>
-                <a href="/">About Us</a>
-              </li>
+            <ul className={this.state.toggle ? 'nav-links show-nav' : 'nav-links'}>
               <li>
                 <a href="/program">Program</a>
               </li>
