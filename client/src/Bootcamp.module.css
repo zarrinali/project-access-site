@@ -26,6 +26,10 @@ hr ~ p {
   line-height: 3rem;
 }
 
+p {
+  color: black;
+}
+
 /* Header */
 .Bootcamp header {
   background-image: url("./assets/images/header_img1.jpg");
