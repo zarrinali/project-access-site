@@ -1,14 +1,14 @@
 .Dropdown {
   text-align: left;
 }
-button {
+.Dropdown button {
   background-color: transparent;
   border: none;
 }
-button:focus {
+.Dropdown button:focus {
   outline: none;
 }
-button p {
+.Dropdown button p {
   color: #fda929;
   font-size: 2.1rem;
   line-height: 3rem;
@@ -24,16 +24,16 @@ button p {
   margin-left: 3rem;
   line-height: 2.7rem;
 }
-.nav_links {
+.Dropdown .nav_links {
   height: 0;
   overflow: hidden;
 }
-.show-nav {
+.Dropdown .show-nav {
   height: 100%;
 }
 
 @media (max-width: 1800px) {
-  button p {
+  .Dropdown button p {
     font-size: 1.9rem;
     line-height: 2.8rem;
   }
@@ -46,7 +46,7 @@ button p {
 }
 
 @media (max-width: 1440px) {
-  button p {
+  .Dropdown button p {
     font-size: 1.7rem;
     line-height: 2.5rem;
   }

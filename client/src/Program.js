@@ -1,24 +1,16 @@
-import React from "react";
-import Nav from "./components/Nav/Nav";
-import Footer from "./components/Footer/Footer";
-import styles from "./Program.module.css";
-import infographic from "./assets/images/infographic.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChalkboardTeacher,
-  faUser,
-  faBook,
-  faQuoteLeft,
-  faQuoteRight,
-} from "@fortawesome/free-solid-svg-icons";
-import "react-multi-carousel/lib/styles.css";
+import React from 'react';
+import Nav from './components/Nav/Nav';
+import Footer from './components/Footer/Footer';
+import styles from './Program.module.css';
+import infographic from './assets/images/infographic.png';
+import 'react-multi-carousel/lib/styles.css';
 
 class Program extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      name: "",
+      email: '',
+      name: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -51,12 +43,11 @@ class Program extends React.Component {
             <h2>We Support You</h2>
             <hr />
             <p>
-              Project Access Austria accompanies people on their way and helps
-              them overcome challenges. Our work in as a non-profit organization
-              is geared towards developing holistic approaches to some of the
-              greatest challenges facing our society. To be able to act and to
-              remain so is of fundamental importance. With our projects we
-              support individuals and communities on their way.
+              Project Access Austria accompanies people on their way and helps them overcome
+              challenges. Our work in as a non-profit organization is geared towards developing
+              holistic approaches to some of the greatest challenges facing our society. To be able
+              to act and to remain so is of fundamental importance. With our projects we support
+              individuals and communities on their way.
             </p>
           </section>
           <section className={`${styles.infographic} ${styles.gray}`}>
@@ -74,23 +65,21 @@ class Program extends React.Component {
                 <h3>Your Individual Mentor</h3>
                 <h5>Personalized Guidance</h5>
                 <p className={styles.summary}>
-                  Your path to an international university is individual -
-                  that's why we find an individual mentor for you who studies at
-                  one of our target universities.
+                  Your path to an international university is individual - that's why we find an
+                  individual mentor for you who studies at one of our target universities.
                 </p>
                 <div className={styles.list}>
                   <p>From 2021 you will receive up to two mentors from us:</p>
                   <ul>
                     <li>
-                      Before the Bootcamp, we assign you a personal mentor who
-                      will come from Austria if possible. The personal mentor
-                      will help you with orientation, choosing the right target
-                      university, and preparing for the Bootcamp.
+                      Before the Bootcamp, we assign you a personal mentor who will come from
+                      Austria if possible. The personal mentor will help you with orientation,
+                      choosing the right target university, and preparing for the Bootcamp.
                     </li>
                     <li>
-                      After the Bootcamp, you will be assigned a subject mentor
-                      who is studying the same or a similar subject for which
-                      you are applying at one of your target universities.
+                      After the Bootcamp, you will be assigned a subject mentor who is studying the
+                      same or a similar subject for which you are applying at one of your target
+                      universities.
                     </li>
                   </ul>
                 </div>
@@ -102,12 +91,11 @@ class Program extends React.Component {
                 <h3>The Bootcamp</h3>
                 <h5>Application Coaching</h5>
                 <p className={styles.summary}>
-                  At the Project Access Austria Bootcamp, all Austrian Project
-                  Access Austria program participants meet to learn the most
-                  important skills for a successful application. In a three-day
-                  seminar group of 8-10 people, you will learn from our
-                  trainers, who are studying at one of our target universities,
-                  how you can apply successfully.
+                  At the Project Access Austria Bootcamp, all Austrian Project Access Austria
+                  program participants meet to learn the most important skills for a successful
+                  application. In a three-day seminar group of 8-10 people, you will learn from our
+                  trainers, who are studying at one of our target universities, how you can apply
+                  successfully.
                 </p>
                 <div className={styles.list}>
                   <p>The following content is covered:</p>
@@ -119,9 +107,8 @@ class Program extends React.Component {
                   </ul>
                 </div>
                 <p>
-                  The Bootcamp is the annual Project Access Austria highlight -
-                  and a wonderful opportunity to get to know other ambitious
-                  young people from Austria.
+                  The Bootcamp is the annual Project Access Austria highlight - and a wonderful
+                  opportunity to get to know other ambitious young people from Austria.
                 </p>
               </div>
               <div className={styles.img_container2}></div>
@@ -131,22 +118,19 @@ class Program extends React.Component {
                 <h3>Preperation and Follow Up Courses</h3>
                 <h5>Assistance from orientation to the first day of study</h5>
                 <p className={styles.summary}>
-                  We will accompany you on your way with a preparation course
-                  for the boot camp, the "Bootcamp Prep Course", and a follow-up
-                  course, the "Post Bootcamp Course".
+                  We will accompany you on your way with a preparation course for the boot camp, the
+                  "Bootcamp Prep Course", and a follow-up course, the "Post Bootcamp Course".
                 </p>
                 <div className={styles.list}>
                   <ul>
                     <li>
-                      In the Bootcamp Prep Course , we accompany you through the
-                      orientation phase and the development of the first
-                      components of your application.
+                      In the Bootcamp Prep Course , we accompany you through the orientation phase
+                      and the development of the first components of your application.
                     </li>
                     <li>
-                      In the Post Bootcamp course , we offer supplementary
-                      information webinars at the right time as well as some
-                      peer learning groups for joint preparation for the
-                      application, such as for interviews.
+                      In the Post Bootcamp course , we offer supplementary information webinars at
+                      the right time as well as some peer learning groups for joint preparation for
+                      the application, such as for interviews.
                     </li>
                   </ul>
                 </div>

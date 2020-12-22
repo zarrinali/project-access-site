@@ -6,7 +6,7 @@
   font-size: 3.8rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
-  font-family: "Poppins", "Ariel";
+  font-family: 'Poppins', 'Ariel';
   line-height: 4.5rem;
 }
 hr {
@@ -26,13 +26,9 @@ hr ~ p {
   line-height: 3rem;
 }
 
-p {
-  color: black;
-}
-
 /* Header */
 .Bootcamp header {
-  background-image: url("./assets/images/header_img1.jpg");
+  background-image: url('./assets/images/header_img1.jpg');
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover;
@@ -57,7 +53,7 @@ p {
   width: 80%;
   text-align: center;
   line-height: 8rem;
-  font-family: "Poppins", "Ariel";
+  font-family: 'Poppins', 'Ariel';
 }
 .cta {
   font-size: 2.3rem;
@@ -191,7 +187,7 @@ p {
   font-size: 2.6rem;
   line-height: 3.2rem;
   font-weight: 600;
-  font-family: "Poppins", "Ariel";
+  font-family: 'Poppins', 'Ariel';
 }
 .signup p {
   color: white;

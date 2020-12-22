@@ -23,7 +23,7 @@ class StudentNav extends Component {
             <button onClick={this.Toggle}>
               <FaAlignRight />
             </button>
-            <ul className={this.state.toggle ? 'nav-links show-nav' : 'nav-links'}>
+            <ul className={this.state.toggle ? 'show-nav' : ''}>
               <li>
                 <a href="/studentaccount">Student Account</a>
               </li>
