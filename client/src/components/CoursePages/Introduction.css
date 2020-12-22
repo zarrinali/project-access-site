@@ -1,0 +1,38 @@
+#title {
+    border-radius: 15px;
+    font-size: x-large;
+    background: #FDA929; 
+    padding: 50px; 
+    width: 1000px; 
+    height: 150px;
+    margin-left: 450px;
+    bottom: 5000px;
+    position: relative;
+    margin-top: 90px;
+}
+
+#description {
+    border-radius: 15px;
+    font-size: large;
+    background:	#00B497; 
+    width: 1000px;
+    padding: 20px; 
+    margin-left: 450px;
+    bottom: 5000px;
+    position: relative;
+    margin-top: 90px;
+    text-align: center;
+}
+
+#descr2 {
+    border-radius: 15px;
+    font-size: large;
+    background:	#00B497; 
+    width: 1000px;
+    padding: 20px; 
+    margin-left: 450px;
+    bottom: 5000px;
+    position: relative;
+    margin-top: 90px;
+    text-align: center;
+}

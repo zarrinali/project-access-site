@@ -43,6 +43,7 @@ hr ~ p {
   justify-content: center;
   margin: 12rem 0;
   z-index: 10;
+  color: black;
 }
 .header_text h1 {
   color: #fda929;
