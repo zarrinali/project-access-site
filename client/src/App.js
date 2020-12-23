@@ -13,6 +13,7 @@ import ModuleThree from "./ModuleThree.js";
 import ModuleFour from "./ModuleFour.js";
 import ModuleFive from "./ModuleFive.js";
 import ModuleSix from "./ModuleSix.js";
+import StudentAccount from "./StudentAccount.js";
 
 class App extends Component {
   constructor(props) {
@@ -48,6 +49,7 @@ class App extends Component {
             <Route exact path="/module4"><ModuleFour /></Route>
             <Route exact path="/module5"><ModuleFive /></Route>
             <Route exact path="/module6"><ModuleSix /></Route>
+            <Route exact path="/studentaccount"><StudentAccount /></Route>
           </Switch>
         </Router>
       </div>

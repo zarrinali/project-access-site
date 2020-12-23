@@ -1,0 +1,44 @@
+.header {
+    border-radius: 15px;
+    font-size: xx-large;
+    background: #3B8CD9;
+    padding: 50px; 
+    width: 1000px; 
+    height: 150px;
+    margin-left: 450px;
+    bottom: 5000px;
+    position: relative;
+    margin-top: 90px;
+}
+
+.studentinfo {
+    border-radius: 15px;
+    font-size: large;
+    text-align: left;
+    background: #FDA929; 
+    padding: 50px; 
+    width: 800px; 
+    height: 200px;
+    margin-left: 650px;
+    bottom: 5000px;
+    position: relative;
+    margin-top: 90px;
+    line-height: 1.6;
+}
+
+.programinfo {
+    border-radius: 15px;
+    font-size: large;
+    text-align: left;
+    background: #FDA929; 
+    padding: 50px; 
+    width: 800px; 
+    height: 200px;
+    margin-left: 650px;
+    bottom: 5000px;
+    position: relative;
+    margin-top: 90px;
+    line-height: 1.6;
+}
+
+

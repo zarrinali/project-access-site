@@ -2,14 +2,15 @@
     width: 300px;
     height: 5000px; 
     background-color: #2a3038;
+    margin: 0;
 }
 
-p {
+#sidebar-title {
     color: white;
     font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
-    font-size: larger;
+    font-size: x-large;
     text-align: center;
-    padding-top: 50px;
+    padding-top: 80px;
 }
 
 .navigation {
@@ -18,9 +19,15 @@ p {
     justify-content: space-between;
 }
 
-li{
+.navigation li{
     margin: 80px 0;
     color: white;
-    font-size: large;
+    font-size: xx-large;
     font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
   }
+ 
+#sidebar-title a {
+    color:white;
+    font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+}
+

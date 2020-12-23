@@ -4,7 +4,9 @@ import React from "react";
 function Sidebar() {
     return (
         <div className="side-bar">
-            <p>Pre-Bootcamp Course</p>
+            <p id="sidebar-title">
+                <a href="/prebootcampcourse"> Pre-Bootcamp Course </a>
+            </p>
             <ul className="navigation">
                 <li>
                     <a href="/module1">Module One</a>
