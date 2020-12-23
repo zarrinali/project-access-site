@@ -4,7 +4,8 @@ const airtable = require('airtable');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-const Mailing = require('./mailing');
+const mailing = require('../mailing');
+const { makeVerificationToken } = require('./verificationControllers');
 
 // Configure Airtable with the API key and Base key
 airtable.configure({
@@ -35,35 +36,40 @@ async function loginRequired(req, res, next) {
 
 /**
  * Send verification email after a user registers
- * @param {String} email
+ * @param {object} user
  * @param {function} next
  * @return {object}
  */
-async function sendVerificationEmail(email, next) {
+async function sendVerificationEmail(user) {
   try {
+    const token = await makeVerificationToken(user.record_id);
+
+    console.log(token);
+
     const mailBody = {
-      email: email,
-      text: `Please verify your email at `,
-      html: `<b>Please verify your email at </b>`,
+      email: user.email,
+      text: `Please verify your email at ${token}`,
+      html: `<b>Please verify your email at ${token}</b>`,
     };
 
-    await Mailing.sendEmail(mailBody);
+    mailing.sendEmail(mailBody);
     return 'Verification email sent!';
   } catch (err) {
-    return next(err);
+    return err;
   }
 }
 
 /**
  * Find user that matches the email provided
  * @param {object} req
+ * @param {function} next
  */
-async function findMatchUser(req) {
+async function findMatchUser(req, next) {
   try {
     const users = [];
 
     // Filter the DB with provided email and take out the user
-    await base('Table 1')
+    await base('Persons')
       .select({
         maxRecords: 1,
         view: 'Grid view',
@@ -90,14 +96,14 @@ async function findMatchUser(req) {
  */
 router.post('/signup', async function (req, res, next) {
   try {
-    const matchUser = await findMatchUser(req);
+    const matchUser = await findMatchUser(req, next);
 
     if (matchUser.length == 0) {
       // Hash user's password before adding to DB
       const hashPassword = bcrypt.hashSync(req.body.user.password, saltRounds);
 
       // Create a new user in DB
-      base('Table 1').create(
+      base('Persons').create(
         [
           {
             fields: {
@@ -106,17 +112,17 @@ router.post('/signup', async function (req, res, next) {
             },
           },
         ],
-        function (err, record) {
+        async function (err, records) {
           if (err) {
             return res.status(400).json({
               message: err,
             });
           }
-          sendVerificationEmail(record[0].fields.email, next);
+          await sendVerificationEmail(records[0].fields, next);
           // Make password undefined before sending back to client
-          record[0].fields.password = undefined;
+          records[0].fields.password = undefined;
           return res.status(201).json({
-            user: record[0].fields,
+            user: records[0].fields,
             message: 'Registration successful!',
           });
         }
@@ -137,7 +143,7 @@ router.post('/signup', async function (req, res, next) {
  */
 router.post('/login', async function (req, res) {
   try {
-    const matchUser = await findMatchUser(req);
+    const matchUser = await findMatchUser(req, next);
 
     if (matchUser.length > 0) {
       const user = matchUser[0];
