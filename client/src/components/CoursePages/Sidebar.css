@@ -13,10 +13,10 @@
     padding-top: 80px;
 }
 
-.navigation {
-    padding-top: 50px; 
-    text-align: center;
-    justify-content: space-between;
+.side-bar .navigation {
+  padding-top: 50px;
+  text-align: center;
+  justify-content: space-between;
 }
 
 .navigation li{
