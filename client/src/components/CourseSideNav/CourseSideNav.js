@@ -1,9 +1,9 @@
 import React from 'react';
-import './SideNav.css';
+import './CourseSideNav.css';
 import logo from '../../assets/images/austria.png';
 import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
 
-class SideNav extends React.Component {
+class CourseSideNav extends React.Component {
   state = {
     toggle: false,
   };
@@ -13,7 +13,7 @@ class SideNav extends React.Component {
 
   render() {
     return (
-      <div className="SideNav">
+      <div className="CourseSideNav">
         <div className={this.state.toggle ? 'show_nav' : ''}>
           <button onClick={this.Toggle}>
             <FaChevronRight />
@@ -24,11 +24,16 @@ class SideNav extends React.Component {
               <img src={logo} className="logo" alt="logo" />
             </a>
             <div>
-              <a href="/dashboard">Dashboard</a>
-              <a href="/studentaccount">Account Profile</a>
-              <a href="/">Application Tracker</a>
-              <a href="/">Inbox</a>
-              <a href="/">Sign Out</a>
+              <a href="/prebootcampcourse">Pre-Bootcamp Course</a>
+              <a href="/module1">Module One</a>
+              <a href="/module2">Module Two</a>
+              <a href="/module3">Module Three</a>
+              <a href="/module4">Module Four</a>
+              <a href="/module5">Module Five</a>
+              <a href="/module6">Module Six</a>
+              <a href="/dashboard">
+                <FaChevronLeft /> Back to Dashboard
+              </a>
             </div>
           </nav>
         </div>
@@ -37,4 +42,4 @@ class SideNav extends React.Component {
   }
 }
 
-export default SideNav;
+export default CourseSideNav;
