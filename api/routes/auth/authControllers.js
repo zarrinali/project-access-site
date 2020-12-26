@@ -6,7 +6,9 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const mailing = require('../mailing');
 const crypto = require('crypto-random-string');
-const { makeVerificationToken } = require('./verificationControllers');
+const {
+  makeVerificationToken
+} = require('./verificationControllers');
 
 // Configure Airtable with the API key and Base key
 airtable.configure({
@@ -15,23 +17,22 @@ airtable.configure({
 });
 const base = airtable.base(process.env.DATABASE);
 
+function redirectIfLoggedIn(req, res, next) {
+
+}
+
 /**
  * For resources that require authorization
  * @param {object} req
  * @param {object} res
- * @param {function} next
  */
-async function loginRequired(req, res, next) {
-  try {
-    if (req.user) {
-      next();
-    } else {
-      return res.status(401).json({
-        message: 'Unauthorized user!',
-      });
-    }
-  } catch (err) {
-    return next(err);
+async function loginRequired(req, res) {
+  if (req.user) {
+    next();
+  } else {
+    return res.status(401).json({
+      message: 'Unauthorized user!',
+    });
   }
 }
 
@@ -41,52 +42,43 @@ async function loginRequired(req, res, next) {
  * @return {object}
  */
 async function sendVerificationEmail(baseUrl, user) {
-  try {
-    const token = await makeVerificationToken(user.record_id);
+  const token = await makeVerificationToken(user.record_id);
 
-    const mailBody = {
-      email: user.email,
-      text: `Please verify your email at http://${baseUrl}/auth/verification/${token}`,
-      html: `<b>Please verify your email at http://${baseUrl}/auth/verification/${token}</b>`,
-    };
+  const mailBody = {
+    email: user.email,
+    text: `Please verify your email at http://${baseUrl}/auth/verification/${token}`,
+    html: `<b>Please verify your email at http://${baseUrl}/auth/verification/${token}</b>`,
+  };
 
-    mailing.sendEmail(mailBody);
-    return 'Verification email sent!';
-  } catch (err) {
-    return err;
-  }
+  mailing.sendEmail(mailBody);
+  return 'Verification email sent!';
 }
 
 /**
  * Find user that matches the email provided
  * @param {object} req
- * @param {function} next
  */
-async function findMatchUser(req, next) {
-  try {
-    const users = [];
+async function findMatchUser(req) {
+  const users = [];
 
-    // Filter the DB with provided email and take out the user
-    await base('Persons')
-      .select({
-        maxRecords: 1,
-        view: 'Grid view',
-        filterByFormula: `{email} = "${req.body.user.email}"`,
-      })
-      .all()
-      .then(function (records) {
-        records.forEach(function (record) {
-          users.push(record.fields);
-        });
-      })
-      .catch(function (err) {
-        return err;
+  // Filter the DB with provided email and take out the user
+  await base('Persons')
+    .select({
+      maxRecords: 1,
+      view: 'Grid view',
+      filterByFormula: `{email} = "${req.body.user.email}"`,
+    })
+    .all()
+    .then(function (records) {
+      records.forEach(function (record) {
+        users.push(record.fields);
       });
+    })
+    .catch(function (err) {
+      return err;
+    });
 
-    return users;
-  } catch (err) {
-    return next(err);
-  }
+  return users;
 }
 
 /**
@@ -102,14 +94,12 @@ router.post('/signup', async function (req, res, next) {
 
       // Create a new user in DB
       base('Persons').create(
-        [
-          {
-            fields: {
-              email: req.body.user.email,
-              password: hashPassword,
-            },
+        [{
+          fields: {
+            email: req.body.user.email,
+            password: hashPassword,
           },
-        ],
+        }, ],
         async function (err, records) {
           if (err) {
             return res.status(400).json({
@@ -152,13 +142,11 @@ router.post('/login', async function (req, res) {
 
       // Compare user's password and the password in DB
       if (bcrypt.compareSync(req.body.user.password, user.password)) {
-        const token = jwt.sign(
-          {
+        const token = jwt.sign({
             email: user.email,
             _id: user.record_id,
           },
-          process.env.SECRET_ACCESS_TOKEN,
-          {
+          process.env.SECRET_ACCESS_TOKEN, {
             algorithm: 'HS256',
             expiresIn: '28800s',
           }

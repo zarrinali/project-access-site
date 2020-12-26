@@ -17,24 +17,17 @@ const base = airtable.base(process.env.DATABASE);
  * @return {object}
  */
 async function makeVerificationToken(recordId) {
-  try {
-    const data = await base('RegistrationData').create([
-      {
-        fields: {
-          verificationToken:
-            recordId +
-            crypto({
-              length: cryptoLength,
-            }),
-          dateTime: new Date(),
-          persons: [recordId],
-        },
-      },
-    ]);
-    return data[0].fields.verificationToken;
-  } catch (err) {
-    return err;
-  }
+  const data = await base('RegistrationData').create([{
+    fields: {
+      verificationToken: recordId +
+        crypto({
+          length: cryptoLength,
+        }),
+      dateTime: new Date(),
+      persons: [recordId],
+    },
+  }, ]);
+  return data[0].fields.verificationToken;
 }
 
 router.get('/verification/:verificationToken', async function (req, res, next) {
