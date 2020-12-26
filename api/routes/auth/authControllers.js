@@ -17,32 +17,42 @@ airtable.configure({
 });
 const base = airtable.base(process.env.DATABASE);
 
+/**
+ * For resources that require authorization
+ * @param {object} req
+ * @param {object} res
+ * @param {function} next
+ */
 function redirectIfLoggedIn(req, res, next) {
-
+  if (req.user) {
+    return res.redirect('/');
+  }
+  return next();
 }
 
 /**
  * For resources that require authorization
  * @param {object} req
  * @param {object} res
+ * @param {function} next
  */
 async function loginRequired(req, res) {
   if (req.user) {
     next();
-  } else {
-    return res.status(401).json({
-      message: 'Unauthorized user!',
-    });
   }
+  return res.status(401).json({
+    message: 'Unauthorized user!',
+  });
 }
 
 /**
  * Send verification email after a user registers
+ * @param {String} baseUrl
  * @param {object} user
  * @return {object}
  */
 async function sendVerificationEmail(baseUrl, user) {
-  const token = await makeVerificationToken(user.record_id);
+  const token = await makeVerificationToken(user.recordId);
 
   const mailBody = {
     email: user.email,
@@ -59,26 +69,16 @@ async function sendVerificationEmail(baseUrl, user) {
  * @param {object} req
  */
 async function findMatchUser(req) {
-  const users = [];
-
   // Filter the DB with provided email and take out the user
-  await base('Persons')
+  const user = await base('Persons')
     .select({
       maxRecords: 1,
       view: 'Grid view',
       filterByFormula: `{email} = "${req.body.user.email}"`,
     })
-    .all()
-    .then(function (records) {
-      records.forEach(function (record) {
-        users.push(record.fields);
-      });
-    })
-    .catch(function (err) {
-      return err;
-    });
+    .all();
 
-  return users;
+  return user;
 }
 
 /**
@@ -133,18 +133,18 @@ router.post('/signup', async function (req, res, next) {
  * Fetch email and password from DB
  * and compare with user-provided email and password to authenticate
  */
-router.post('/login', async function (req, res) {
+router.post('/login', async function (req, res, next) {
   try {
-    const matchUser = await findMatchUser(req, next);
+    const matchUser = await findMatchUser(req);
 
     if (matchUser.length > 0) {
-      const user = matchUser[0];
+      const user = matchUser[0].fields;
 
       // Compare user's password and the password in DB
       if (bcrypt.compareSync(req.body.user.password, user.password)) {
         const token = jwt.sign({
             email: user.email,
-            _id: user.record_id,
+            _id: user.recordId,
           },
           process.env.SECRET_ACCESS_TOKEN, {
             algorithm: 'HS256',
@@ -172,8 +172,13 @@ router.post('/login', async function (req, res) {
       });
     }
   } catch (err) {
+    console.log(err);
     return next(err);
   }
 });
 
-module.exports = router;
+module.exports = {
+  loginRequired,
+  redirectIfLoggedIn,
+  router
+};
