@@ -1,17 +1,19 @@
 .Nav {
   background-color: #eee;
   z-index: 100;
+  /* font-family: Corbel, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans',
+    'Bitstream Vera Sans', 'Liberation Sans', Verdana, 'Verdana Ref', sans-serif; */
   font-family: Arial, Helvetica, sans-serif;
 }
-nav {
+.Nav nav {
   display: flex;
   width: 80%;
-  padding: 2rem 0;
+  padding: 1.5rem 0;
   margin: 0 auto;
   align-items: center;
   justify-content: space-between;
 }
-nav div {
+.Nav div {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -25,11 +27,11 @@ nav div {
   list-style: none;
   margin-left: 4.5rem;
 }
-li a {
+.Nav li a {
   font-size: 2rem;
   color: black;
 }
-li a:hover {
+.Nav li a:hover {
   color: #fda929;
 }
 .Nav img {
@@ -54,7 +56,7 @@ li a:hover {
   .Nav li {
     margin-left: 4.2rem;
   }
-  li a {
+  .Nav li a {
     font-size: 1.8rem;
   }
   .Nav img {
@@ -66,7 +68,7 @@ li a:hover {
   .Nav li {
     margin-left: 3.8rem;
   }
-  li a {
+  .Nav li a {
     font-size: 1.6rem;
   }
   .Nav img {
@@ -78,7 +80,7 @@ li a:hover {
   .Nav li {
     margin-left: 3.5rem;
   }
-  li a {
+  .Nav li a {
     font-size: 1.5rem;
   }
   .Nav img {
@@ -87,7 +89,7 @@ li a:hover {
   }
 }
 @media (max-width: 1600px) {
-  li a {
+  .Nav li a {
     font-size: 1.2rem;
   }
   .Nav img {
@@ -101,7 +103,7 @@ li a:hover {
   }
 }
 @media screen and (max-width: 768px) {
-  nav {
+  .Nav nav {
     align-items: flex-start;
     padding: 1.5rem 0;
   }
@@ -126,7 +128,7 @@ li a:hover {
   }
 }
 @media screen and (max-width: 425px) {
-  nav {
+  .Nav nav {
     align-items: flex-start;
     padding: 1rem 0;
   }

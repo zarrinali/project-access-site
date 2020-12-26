@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const mailing = require('../mailing');
+const crypto = require('crypto-random-string');
 const { makeVerificationToken } = require('./verificationControllers');
 
 // Configure Airtable with the API key and Base key
@@ -37,19 +38,16 @@ async function loginRequired(req, res, next) {
 /**
  * Send verification email after a user registers
  * @param {object} user
- * @param {function} next
  * @return {object}
  */
-async function sendVerificationEmail(user) {
+async function sendVerificationEmail(baseUrl, user) {
   try {
     const token = await makeVerificationToken(user.record_id);
 
-    console.log(token);
-
     const mailBody = {
       email: user.email,
-      text: `Please verify your email at ${token}`,
-      html: `<b>Please verify your email at ${token}</b>`,
+      text: `Please verify your email at http://${baseUrl}/auth/verification/${token}`,
+      html: `<b>Please verify your email at http://${baseUrl}/auth/verification/${token}</b>`,
     };
 
     mailing.sendEmail(mailBody);
@@ -118,7 +116,11 @@ router.post('/signup', async function (req, res, next) {
               message: err,
             });
           }
-          await sendVerificationEmail(records[0].fields, next);
+
+          const baseUrl = req.headers.host;
+
+          await sendVerificationEmail(baseUrl, records[0].fields);
+
           // Make password undefined before sending back to client
           records[0].fields.password = undefined;
           return res.status(201).json({
