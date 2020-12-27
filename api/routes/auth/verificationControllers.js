@@ -18,16 +18,19 @@ const base = airtable.base(process.env.DATABASE);
  * @return {object}
  */
 async function makeVerificationToken(recordId) {
-  const data = await base('RegistrationData').create([{
-    fields: {
-      verificationToken: recordId +
-        crypto({
-          length: cryptoLength,
-        }),
-      dateTime: new Date(),
-      persons: [recordId],
+  const data = await base('RegistrationData').create([
+    {
+      fields: {
+        verificationToken:
+          recordId +
+          crypto({
+            length: cryptoLength,
+          }),
+        dateTime: new Date(),
+        persons: [recordId],
+      },
     },
-  }, ]);
+  ]);
   return data[0].fields.verificationToken;
 }
 
@@ -45,9 +48,15 @@ router.get('/verification/:verificationToken', async function (req, res, next) {
       })
       .all();
 
-    if (user.length == 0) {
+    if (userByToken.length == 0) {
+      return res.status(404).json({
+        message: 'Invalid verification token',
+      });
+    }
+
+    if (userByToken[0].fields.isVerified[0]) {
       return res.status(200).json({
-        message: 'This token is invalid.',
+        message: 'This email is already verified.',
       });
     }
 
@@ -59,16 +68,26 @@ router.get('/verification/:verificationToken', async function (req, res, next) {
       })
       .all();
 
-    /* if (userByToken[0].fields.email[0] === userByRecordId[0].fields.email[0]) {
-
-    } */
-
-    console.log(user);
-
-    console.log('token: ' + token + ' ' + token.length);
-
-    console.log('userId: ' + recordId);
-    return res.send('All good');
+    if (userByToken[0].fields.email[0] === userByRecordId[0].fields.email) {
+      base('Persons').update(
+        recordId,
+        {
+          isVerified: true,
+        },
+        function (err) {
+          if (err) {
+            return err;
+          }
+          return res.status(200).json({
+            message: 'Thank you for your verification!',
+          });
+        }
+      );
+    } else {
+      return res.status(409).json({
+        message: 'There is an error in verification. Please contact the administrator.',
+      });
+    }
   } catch (err) {
     return next(err);
   }

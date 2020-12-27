@@ -6,9 +6,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const mailing = require('../mailing');
 const crypto = require('crypto-random-string');
-const {
-  makeVerificationToken
-} = require('./verificationControllers');
+const { makeVerificationToken } = require('./verificationControllers');
 
 // Configure Airtable with the API key and Base key
 airtable.configure({
@@ -23,12 +21,12 @@ const base = airtable.base(process.env.DATABASE);
  * @param {object} res
  * @param {function} next
  */
-function redirectIfLoggedIn(req, res, next) {
-  if (req.user) {
+/* function redirectIfLoggedIn(req, res, next) {
+  if (req.cookies._uid) {
     return res.redirect('/');
   }
   return next();
-}
+} */
 
 /**
  * For resources that require authorization
@@ -37,7 +35,7 @@ function redirectIfLoggedIn(req, res, next) {
  * @param {function} next
  */
 async function loginRequired(req, res) {
-  if (req.user) {
+  if (req.cookies._uid) {
     next();
   }
   return res.status(401).json({
@@ -81,6 +79,10 @@ async function findMatchUser(req) {
   return user;
 }
 
+/* router.get('/signup', redirectIfLoggedIn, function (req, res) {
+  return res.status(200).end();
+}); */
+
 /**
  * Send email and password to DB for registration
  */
@@ -94,12 +96,12 @@ router.post('/signup', async function (req, res, next) {
 
       // Create a new user in DB
       base('Persons').create(
-        [{
+        {
           fields: {
             email: req.body.user.email,
             password: hashPassword,
           },
-        }, ],
+        },
         async function (err, records) {
           if (err) {
             return res.status(400).json({
@@ -129,6 +131,10 @@ router.post('/signup', async function (req, res, next) {
   }
 });
 
+/* router.get('/login', redirectIfLoggedIn, function (req, res) {
+  return res.status(200).end();
+}); */
+
 /**
  * Fetch email and password from DB
  * and compare with user-provided email and password to authenticate
@@ -142,18 +148,26 @@ router.post('/login', async function (req, res, next) {
 
       // Compare user's password and the password in DB
       if (bcrypt.compareSync(req.body.user.password, user.password)) {
-        const token = jwt.sign({
+        const token = jwt.sign(
+          {
             email: user.email,
             _id: user.recordId,
           },
-          process.env.SECRET_ACCESS_TOKEN, {
+          process.env.SECRET_ACCESS_TOKEN,
+          {
             algorithm: 'HS256',
             expiresIn: '28800s',
           }
         );
 
-        res.cookie('token', token, {
+        res.cookie('authorization', token, {
           httpOnly: true,
+          maxAge: 28800000,
+        });
+
+        res.cookie('_uid', user.recordId, {
+          httpOnly: true,
+          maxAge: 28800000,
         });
 
         // Give the user a token to authenticate
@@ -172,13 +186,21 @@ router.post('/login', async function (req, res, next) {
       });
     }
   } catch (err) {
-    console.log(err);
+    return next(err);
+  }
+});
+
+router.get('/logout', function (req, res, next) {
+  try {
+    console.log(req);
+    res.redirect('/');
+  } catch (err) {
     return next(err);
   }
 });
 
 module.exports = {
   loginRequired,
-  redirectIfLoggedIn,
-  router
+  // redirectIfLoggedIn,
+  router,
 };

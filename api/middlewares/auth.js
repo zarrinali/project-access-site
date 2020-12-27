@@ -7,27 +7,27 @@ const jwt = require('jsonwebtoken');
  * @param {object} next
  */
 function authenticateToken(req, res, next) {
-    const authHeader = req.headers.authorization;
+  const authHeader = req.headers;
 
-    // Check for authorization in header and the first keyword
-    if (authHeader !== undefined && authHeader.split(' ')[0] === 'JWT') {
-        const tokens = authHeader.split(' ');
+  // Check for authorization in header and the first keyword
+  if (authHeader.authorization !== undefined) {
+    const token = authHeader.authorization;
 
-        // Verify with secret token
-        jwt.verify(tokens[1], process.env.SECRET_ACCESS_TOKEN, (err, decode) => {
-            if (err) {
-                req.user = undefined;
-                return res.status(403).json({
-                    message: 'Unauthorized access to the requested resources.',
-                });
-            }
-            req.user = decode;
-            next();
-        });
-    } else {
+    // Verify with secret token
+    jwt.verify(token, process.env.SECRET_ACCESS_TOKEN, (err, decode) => {
+      if (err) {
         req.user = undefined;
-        next();
-    }
+        return res.status(403).json({
+          message: 'Unauthorized access to the requested resources.',
+        });
+      }
+      req.user = decode;
+      next();
+    });
+  } else {
+    req.user = undefined;
+    next();
+  }
 }
 
 module.exports = authenticateToken;
