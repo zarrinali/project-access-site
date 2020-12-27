@@ -21,12 +21,14 @@ const base = airtable.base(process.env.DATABASE);
  * @param {object} res
  * @param {function} next
  */
-/* function redirectIfLoggedIn(req, res, next) {
+function redirectIfLoggedIn(req, res, next) {
   if (req.cookies._uid) {
+    console.log('is logged in');
     return res.redirect('/');
   }
+  console.log('is not logged in');
   return next();
-} */
+}
 
 /**
  * For resources that require authorization
@@ -79,9 +81,10 @@ async function findMatchUser(req) {
   return user;
 }
 
-/* router.get('/signup', redirectIfLoggedIn, function (req, res) {
+// TODO: coordinate with frontend on how to work with this
+router.get('/signup', redirectIfLoggedIn, function (req, res) {
   return res.status(200).end();
-}); */
+});
 
 /**
  * Send email and password to DB for registration
@@ -131,9 +134,10 @@ router.post('/signup', async function (req, res, next) {
   }
 });
 
-/* router.get('/login', redirectIfLoggedIn, function (req, res) {
+// TODO: coordinate with frontend on how to work with this
+router.get('/login', redirectIfLoggedIn, function (req, res) {
   return res.status(200).end();
-}); */
+});
 
 /**
  * Fetch email and password from DB
@@ -192,7 +196,8 @@ router.post('/login', async function (req, res, next) {
 
 router.get('/logout', function (req, res, next) {
   try {
-    console.log(req);
+    res.clearCookie('authorization');
+    res.clearCookie('_uid');
     res.redirect('/');
   } catch (err) {
     return next(err);
