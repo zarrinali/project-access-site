@@ -1,18 +1,14 @@
-import React from 'react'
-import ModuleThreeContent from './components/CoursePages/ModuleThreeContent'
-import Sidebar from './components/CoursePages/Sidebar'
-import StudentNav from './components/Nav/StudentNav'
+import React from 'react';
+import ModuleThreeContent from './components/CoursePages/ModuleThreeContent';
 
 class ModuleThree extends React.Component {
-    render() {
-        return (
-            <div>
-                <div><StudentNav /></div>
-                <div><Sidebar /></div>
-                <div><ModuleThreeContent /></div>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <ModuleThreeContent />
+      </div>
+    );
+  }
 }
 
 export default ModuleThree;

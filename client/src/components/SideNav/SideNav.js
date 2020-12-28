@@ -27,7 +27,6 @@ class SideNav extends React.Component {
               <a href="/dashboard">Dashboard</a>
               <a href="/studentaccount">Account Profile</a>
               <a href="/">Application Tracker</a>
-              <a href="/">Inbox</a>
               <a href="/">Sign Out</a>
             </div>
           </nav>

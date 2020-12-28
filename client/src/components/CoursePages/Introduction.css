@@ -17,11 +17,11 @@
   text-align: center;
 }
 
-#title {
+.Introduction #title {
   font-size: 4rem;
 }
 
-#description {
+.Introduction #description {
   border-radius: 15px;
   font-size: 2.25rem;
   background: #00b497;
@@ -46,10 +46,10 @@
 }
 
 @media (max-width: 2200px) {
-  #title {
+  .Introduction #title {
     font-size: 3.5rem;
   }
-  #description,
+  .Introduction #description,
   #descr2 {
     font-size: 1.75rem;
     line-height: 2.8rem;
@@ -59,10 +59,10 @@
   .Introduction .content {
     padding: 2rem 4rem;
   }
-  #title {
+  .Introduction #title {
     font-size: 3rem;
   }
-  #description,
+  .Introduction #description,
   #descr2 {
     font-size: 1.5rem;
     line-height: 2.5rem;
@@ -73,10 +73,10 @@
   }
 }
 @media (max-width: 1600px) {
-  #title {
+  .Introduction #title {
     font-size: 2.5rem;
   }
-  #description,
+  .Introduction #description,
   #descr2 {
     font-size: 1rem;
     line-height: 2rem;
@@ -96,10 +96,10 @@
   }
 }
 @media (max-width: 1200px) {
-  #title {
+  .Introduction #title {
     font-size: 2rem;
   }
-  #description,
+  .Introduction #description,
   #descr2 {
     padding: 2rem;
   }
@@ -108,7 +108,7 @@
   .Introduction .title {
     margin-left: 1.5rem;
   }
-  #description,
+  .Introduction #description,
   #descr2 {
     margin-left: 1.5rem;
   }
@@ -120,17 +120,17 @@
   .Introduction .title {
     padding: 20px 10px;
   }
-  #title {
+  .Introduction #title {
     font-size: 1.8rem;
     line-height: 2.5rem;
   }
-  #description,
+  .Introduction #description,
   #descr2 {
     padding: 1.5rem;
   }
 }
 @media (max-width: 375px) {
-  #title {
+  .Introduction #title {
     font-size: 1.7rem;
   }
 }

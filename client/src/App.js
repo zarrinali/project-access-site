@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './Home.js';
 import Login from './Login.js';
 import SignUp from './SignUp.js';
+import Confirm from './Confirm.js';
+import Success from './Success.js';
 import PreBootcampCourse from './PreBootcampCourse.js';
 import Bootcamp from './Bootcamp.js';
 import Program from './Program.js';
@@ -52,6 +54,12 @@ class App extends Component {
             </Route>
             <Route exact path="/program">
               <Program />
+            </Route>
+            <Route exact path="/confirm">
+              <Confirm />
+            </Route>
+            <Route exact path="/success">
+              <Success />
             </Route>
             <Route exact path="/prebootcampcourse">
               <PreBootcampCourse />
