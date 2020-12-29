@@ -1,0 +1,100 @@
+.Feedback main {
+  padding: 0 0 2rem 0;
+}
+.Feedback main div {
+  display: flex;
+  margin-top: 1.5rem;
+}
+.Feedback .lesson {
+  width: 25%;
+  background-color: #00b497;
+  padding: 2rem;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.Feedback main h5 {
+  font-size: 3.5rem;
+  line-height: 4.5rem;
+}
+.Feedback main p {
+  font-size: 2rem;
+  padding: 1rem 0 1rem 2rem;
+  line-height: 3rem;
+}
+
+@media (max-width: 2200px) {
+  .Feedback main h5 {
+    font-size: 3rem;
+    line-height: 4rem;
+  }
+  .Feedback main p {
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+  }
+}
+@media (max-width: 1800px) {
+  .Feedback main h5 {
+    font-size: 2.5rem;
+    line-height: 3.5rem;
+  }
+  .Feedback main p {
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+  }
+}
+@media (max-width: 1600px) {
+  .Feedback .lesson {
+    padding: 1rem;
+  }
+  .Feedback main h5 {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+}
+@media (max-width: 1440px) {
+  .Feedback main p {
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+}
+@media (max-width: 1200px) {
+  .Feedback .lesson {
+    width: 300px;
+  }
+  .Feedback main h5 {
+    font-size: 1.75rem;
+    line-height: 2rem;
+  }
+  .Feedback main p {
+    font-size: 1rem;
+    line-height: 1.8rem;
+  }
+}
+@media (max-width: 768px) {
+  .Feedback main {
+    margin-left: 1.5rem;
+  }
+  .Feedback .lesson {
+    width: 400px;
+  }
+}
+@media (max-width: 500px) {
+  .Feedback .lesson {
+    width: 100%;
+  }
+  .Feedback main h5 {
+    font-size: 1.5rem;
+    line-height: 2.3rem;
+  }
+  .Feedback main > div {
+    flex-direction: column;
+  }
+}
+@media (max-width: 375px) {
+  .Feedback main h5 {
+    font-size: 1.4rem;
+  }
+}

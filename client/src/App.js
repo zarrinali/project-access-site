@@ -15,8 +15,11 @@ import ModuleThree from './ModuleThree.js';
 import ModuleFour from './ModuleFour.js';
 import ModuleFive from './ModuleFive.js';
 import ModuleSix from './ModuleSix.js';
+import Feedback from './Feedback.js';
 import StudentAccount from './StudentAccount.js';
 import Dashboard from './Dashboard.js';
+import AdminDashboard from './AdminDashboard.js';
+import CreateAssignments from './CreateAssignments.js';
 
 class App extends Component {
   constructor(props) {
@@ -82,11 +85,20 @@ class App extends Component {
             <Route exact path="/module6">
               <ModuleSix />
             </Route>
+            <Route exact path="/feedback">
+              <Feedback />
+            </Route>
             <Route exact path="/studentaccount">
               <StudentAccount />
             </Route>
             <Route exact path="/dashboard">
               <Dashboard />
+            </Route>
+            <Route exact path="/admin_dashboard">
+              <AdminDashboard />
+            </Route>
+            <Route exact path="/create_assignments">
+              <CreateAssignments />
             </Route>
           </Switch>
         </Router>
