@@ -44,17 +44,15 @@ mailing.sendEmail = (data) => {
 
   const mailOptions = {
     to: data.email,
-    subject: 'Please verify your email - Project Access Austria',
+    subject: data.subject,
     text: data.text,
     html: data.html,
   };
 
   transporter.sendMail(mailOptions, function (err, response) {
     if (err) {
-      console.log(err);
       return err;
     }
-    console.log(response);
     return 'sent';
   });
 };

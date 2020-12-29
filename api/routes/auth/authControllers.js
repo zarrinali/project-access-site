@@ -30,18 +30,27 @@ function redirectIfLoggedIn(req, res, next) {
   return next();
 }
 
+function loginRequired(req, res) {
+  if (req.cookies._uid) {
+    return res.status(200).json({});
+  }
+  return res.status(401).json({
+    message: 'Unauthorized access to the requested resources.',
+  });
+}
+
 /**
  * For resources that require authorization
  * @param {object} req
  * @param {object} res
  * @param {function} next
  */
-async function loginRequired(req, res) {
+function loginRequiredRequest(req, res) {
   if (req.cookies._uid) {
     next();
   }
   return res.status(401).json({
-    message: 'Unauthorized user!',
+    message: 'Unauthorized access to the requested resources.',
   });
 }
 
@@ -56,6 +65,7 @@ async function sendVerificationEmail(baseUrl, user) {
 
   const mailBody = {
     email: user.email,
+    subject: 'Please verify your email - Project Access Austria',
     text: `Please verify your email at http://${baseUrl}/auth/verification/${token}`,
     html: `<b>Please verify your email at http://${baseUrl}/auth/verification/${token}</b>`,
   };
@@ -100,13 +110,12 @@ router.post('/signup', async function (req, res, next) {
       // Create a new user in DB
       base('Persons').create(
         {
-          fields: {
-            email: req.body.user.email,
-            password: hashPassword,
-          },
+          email: req.body.user.email,
+          password: hashPassword,
         },
         async function (err, records) {
           if (err) {
+            console.log(err);
             return res.status(400).json({
               message: err,
             });
@@ -114,10 +123,10 @@ router.post('/signup', async function (req, res, next) {
 
           const baseUrl = req.headers.host;
 
-          await sendVerificationEmail(baseUrl, records[0].fields);
+          await sendVerificationEmail(baseUrl, records.fields);
 
           // Make password undefined before sending back to client
-          records[0].fields.password = undefined;
+          records.fields.password = undefined;
           return res.status(201).json({
             user: records[0].fields,
             message: 'Registration successful!',
@@ -160,24 +169,18 @@ router.post('/login', async function (req, res, next) {
           process.env.SECRET_ACCESS_TOKEN,
           {
             algorithm: 'HS256',
-            expiresIn: '28800s',
+            expiresIn: process.env.JWT_EXPIRY_SECONDS + 's',
           }
         );
 
+        // Give the user a token to authenticate
         res.cookie('authorization', token, {
           httpOnly: true,
-          maxAge: 28800000,
+          maxAge: process.env.JWT_EXPIRY_SECONDS * 1000,
         });
 
-        res.cookie('_uid', user.recordId, {
-          httpOnly: true,
-          maxAge: 28800000,
-        });
-
-        // Give the user a token to authenticate
-        return res.json({
-          token: token,
-          message: 'Login successful!',
+        return res.status(200).json({
+          redirectUrl: '/dashboard',
         });
       } else {
         return res.status(401).json({

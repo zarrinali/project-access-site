@@ -3,6 +3,7 @@ import styles from './LoginContent.module.css';
 import logo from '../../assets/images/austria.png';
 import key from '../../assets/images/logo_key_white.png';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
 class LoginContent extends React.Component {
   constructor(props) {
@@ -37,16 +38,8 @@ class LoginContent extends React.Component {
     axios
       .post('http://localhost:9000/auth/login', { user })
       .then((res) => {
-        console.log(res);
-        return res;
-      })
-      .then((res) => {
-        return (
-          <div>
-            {res.data.token}
-            {res.data.message}
-          </div>
-        );
+        console.log(res.data.redirectUrl);
+        return <Redirect to={res.data.redirectUrl} />;
       })
       .catch((err) => console.log(err));
   }
