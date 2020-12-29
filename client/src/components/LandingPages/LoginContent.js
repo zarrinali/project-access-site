@@ -11,10 +11,22 @@ class LoginContent extends React.Component {
     this.state = {
       email: '',
       password: '',
+      isAuth: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    axios
+      .get('http://localhost:9000/api/auth/isLoggedIn')
+      .then((res) => {
+        this.setState({
+          isAuth: res.data,
+        });
+      })
+      .catch((err) => console.log(err));
   }
 
   handleChange(event) {
@@ -36,16 +48,19 @@ class LoginContent extends React.Component {
     };
 
     axios
-      .post('http://localhost:9000/auth/login', { user })
+      .post('http://localhost:9000/api/auth/login', { user })
       .then((res) => {
-        console.log(res.data.redirectUrl);
-        return <Redirect to={res.data.redirectUrl} />;
+        this.setState({
+          isAuth: res.data.results,
+        });
       })
       .catch((err) => console.log(err));
   }
 
   render() {
-    return (
+    return this.state.isAuth ? (
+      <Redirect to="/" />
+    ) : (
       <div className={styles.Login}>
         <main>
           <a href="/" className={styles.logo_link}>

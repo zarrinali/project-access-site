@@ -6,7 +6,9 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const mailing = require('../mailing');
 const crypto = require('crypto-random-string');
-const { makeVerificationToken } = require('./verificationControllers');
+const {
+  makeVerificationToken
+} = require('./verificationControllers');
 
 // Configure Airtable with the API key and Base key
 airtable.configure({
@@ -21,13 +23,11 @@ const base = airtable.base(process.env.DATABASE);
  * @param {object} res
  * @param {function} next
  */
-function redirectIfLoggedIn(req, res, next) {
+function redirectIfLoggedIn(req, res) {
   if (req.cookies._uid) {
-    console.log('is logged in');
-    return res.redirect('/');
+    return res.send(true);
   }
-  console.log('is not logged in');
-  return next();
+  return res.send(false);
 }
 
 function loginRequired(req, res) {
@@ -66,8 +66,8 @@ async function sendVerificationEmail(baseUrl, user) {
   const mailBody = {
     email: user.email,
     subject: 'Please verify your email - Project Access Austria',
-    text: `Please verify your email at http://${baseUrl}/auth/verification/${token}`,
-    html: `<b>Please verify your email at http://${baseUrl}/auth/verification/${token}</b>`,
+    text: `Please verify your email at http://${baseUrl}/confirm/${token}`,
+    html: `<b>Please verify your email at http://${baseUrl}/confirm/${token}</b>`,
   };
 
   mailing.sendEmail(mailBody);
@@ -92,8 +92,11 @@ async function findMatchUser(req) {
 }
 
 // TODO: coordinate with frontend on how to work with this
-router.get('/signup', redirectIfLoggedIn, function (req, res) {
-  return res.status(200).end();
+router.get('/isLoggedIn', function (req, res) {
+  if (req.cookies._uid) {
+    return res.status(200).send(true);
+  }
+  return res.status(200).send(false);
 });
 
 /**
@@ -108,14 +111,12 @@ router.post('/signup', async function (req, res, next) {
       const hashPassword = bcrypt.hashSync(req.body.user.password, saltRounds);
 
       // Create a new user in DB
-      base('Persons').create(
-        {
+      base('Persons').create({
           email: req.body.user.email,
           password: hashPassword,
         },
         async function (err, records) {
           if (err) {
-            console.log(err);
             return res.status(400).json({
               message: err,
             });
@@ -128,7 +129,7 @@ router.post('/signup', async function (req, res, next) {
           // Make password undefined before sending back to client
           records.fields.password = undefined;
           return res.status(201).json({
-            user: records[0].fields,
+            results: true,
             message: 'Registration successful!',
           });
         }
@@ -161,13 +162,11 @@ router.post('/login', async function (req, res, next) {
 
       // Compare user's password and the password in DB
       if (bcrypt.compareSync(req.body.user.password, user.password)) {
-        const token = jwt.sign(
-          {
+        const token = jwt.sign({
             email: user.email,
             _id: user.recordId,
           },
-          process.env.SECRET_ACCESS_TOKEN,
-          {
+          process.env.SECRET_ACCESS_TOKEN, {
             algorithm: 'HS256',
             expiresIn: process.env.JWT_EXPIRY_SECONDS + 's',
           }
@@ -180,7 +179,8 @@ router.post('/login', async function (req, res, next) {
         });
 
         return res.status(200).json({
-          redirectUrl: '/dashboard',
+          results: true,
+          message: 'Login successful!',
         });
       } else {
         return res.status(401).json({

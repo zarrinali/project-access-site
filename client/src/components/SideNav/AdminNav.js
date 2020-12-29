@@ -3,7 +3,7 @@ import './SideNav.css';
 import logo from '../../assets/images/austria.png';
 import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
 
-class SideNav extends React.Component {
+class AdminNav extends React.Component {
   state = {
     toggle: false,
   };
@@ -24,9 +24,8 @@ class SideNav extends React.Component {
               <img src={logo} className="logo" alt="logo" />
             </a>
             <div>
-              <a href="/dashboard">Dashboard</a>
-              <a href="/studentaccount">Account Profile</a>
-              <a href="/">Application Tracker</a>
+              <a href="/admin_dashboard">Dashboard</a>
+              <a href="/create_assignments">Create Assingments</a>
               <a href="/">Sign Out</a>
             </div>
           </nav>
@@ -36,4 +35,4 @@ class SideNav extends React.Component {
   }
 }
 
-export default SideNav;
+export default AdminNav;

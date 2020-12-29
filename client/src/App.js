@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './Home.js';
 import Login from './Login.js';
 import SignUp from './SignUp.js';
+import Confirm from './Confirm.js';
+import Success from './Success.js';
 import PreBootcampCourse from './PreBootcampCourse.js';
 import Bootcamp from './Bootcamp.js';
 import Program from './Program.js';
@@ -13,24 +15,16 @@ import ModuleThree from './ModuleThree.js';
 import ModuleFour from './ModuleFour.js';
 import ModuleFive from './ModuleFive.js';
 import ModuleSix from './ModuleSix.js';
+import Feedback from './Feedback.js';
 import StudentAccount from './StudentAccount.js';
 import Dashboard from './Dashboard.js';
+import AdminDashboard from './AdminDashboard.js';
+import CreateAssignments from './CreateAssignments.js';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = { apiResponse: '' };
-  }
-
-  callAPI() {
-    fetch('http://localhost:9000/testAPI')
-      .then((res) => res.text())
-      .then((res) => this.setState({ apiResponse: res }))
-      .catch((err) => err);
-  }
-
-  componentDidMount() {
-    this.callAPI();
   }
 
   render() {
@@ -53,6 +47,12 @@ class App extends Component {
             <Route exact path="/program">
               <Program />
             </Route>
+            <Route exact path="/confirm">
+              <Confirm />
+            </Route>
+            <Route path="/confirm/:verificationToken">
+              <Success />
+            </Route>
             <Route exact path="/prebootcampcourse">
               <PreBootcampCourse />
             </Route>
@@ -74,11 +74,20 @@ class App extends Component {
             <Route exact path="/module6">
               <ModuleSix />
             </Route>
+            <Route exact path="/feedback">
+              <Feedback />
+            </Route>
             <Route exact path="/studentaccount">
               <StudentAccount />
             </Route>
             <Route exact path="/dashboard">
               <Dashboard />
+            </Route>
+            <Route exact path="/admin_dashboard">
+              <AdminDashboard />
+            </Route>
+            <Route exact path="/create_assignments">
+              <CreateAssignments />
             </Route>
           </Switch>
         </Router>

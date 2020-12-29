@@ -31,6 +31,7 @@ class CourseSideNav extends React.Component {
               <a href="/module4">Module Four</a>
               <a href="/module5">Module Five</a>
               <a href="/module6">Module Six</a>
+              <a href="/feedback">Feedback</a>
               <a href="/dashboard">
                 <FaChevronLeft /> Back to Dashboard
               </a>

@@ -3,6 +3,8 @@ import styles from './SignUpContent.module.css';
 import logo from '../../assets/images/austria.png';
 import key from '../../assets/images/logo_key_white.png';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class SignUpContent extends React.Component {
   constructor(props) {
@@ -14,6 +16,17 @@ class SignUpContent extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    axios
+      .get('http://localhost:9000/api/auth/isLoggedIn')
+      .then((res) => {
+        this.setState({
+          isAuth: res.data,
+        });
+      })
+      .catch((err) => console.log(err));
   }
 
   handleChange(event) {
@@ -35,25 +48,19 @@ class SignUpContent extends React.Component {
     };
 
     axios
-      .post('http://localhost:9000/auth/signup', { user })
+      .post('http://localhost:9000/api/auth/signup', { user })
       .then((res) => {
-        console.log(res);
-        return res;
-      })
-      .then((res) => {
-        return (
-          <div>
-            {res.data.user.record_id}
-            {res.data.user.email}
-            {res.data.message}
-          </div>
-        );
+        if (res.data.results) {
+          this.props.history.push('/confirm');
+        }
       })
       .catch((err) => console.log(err));
   }
 
   render() {
-    return (
+    return this.state.isAuth ? (
+      <Redirect to="/" />
+    ) : (
       <div className={styles.SignUp}>
         <main>
           <a href="/" className={styles.logo_link}>
@@ -93,4 +100,4 @@ class SignUpContent extends React.Component {
   }
 }
 
-export default SignUpContent;
+export default withRouter(SignUpContent);

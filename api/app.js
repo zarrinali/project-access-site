@@ -8,8 +8,6 @@ const cors = require('cors');
 require('dotenv-flow').config();
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
-const testAPIRouter = require('./routes/testAPI');
 const app = express();
 
 // view engine setup
@@ -33,9 +31,7 @@ const jwtAuth = require('./middlewares/auth');
 app.use(jwtAuth);
 
 // routes setup
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/testAPI', testAPIRouter);
+app.use('/api', indexRouter);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));

@@ -1,0 +1,241 @@
+.Module {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+}
+
+.Module .content {
+  width: 100%;
+  padding: 3rem 6rem;
+}
+
+.Module .title {
+  border-radius: 15px;
+  background: #fda929;
+  padding: 50px 40px;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.Module #title {
+  font-size: 4rem;
+  line-height: 5rem;
+}
+
+.Module .container {
+  border-radius: 15px;
+  font-size: 2.25rem;
+  line-height: 3.5rem;
+  background: #00b497;
+  padding: 4rem 4rem 6rem;
+  margin: 4rem auto 0;
+  text-align: center;
+  color: white;
+}
+
+.Module .subheading {
+  text-align: center;
+  color: black;
+  font-size: 3.5rem;
+  padding: 0 0 3rem;
+  font-family: Corbel, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans',
+    'Bitstream Vera Sans', 'Liberation Sans', Verdana, 'Verdana Ref', sans-serif;
+}
+
+.Module .tasks h3 {
+  font-size: 2.5rem;
+  margin: 4rem 0 2rem;
+  color: black;
+}
+
+.Module li {
+  margin: 2rem 0;
+}
+
+.Module li:first-child {
+  margin: 0;
+}
+
+.Module li:last-child {
+  margin: 0;
+}
+
+/* Submit Button */
+.submission-button {
+  background-color: #fda929;
+  border-radius: 15px;
+  border: none;
+  padding: 2rem 3rem;
+  font-size: 2.5rem;
+  margin-top: 4rem;
+  cursor: pointer;
+}
+
+#submission {
+  color: white;
+}
+
+@media (max-width: 2200px) {
+  .Module #title {
+    font-size: 3.5rem;
+  }
+  .Module .container {
+    font-size: 1.75rem;
+    line-height: 2.8rem;
+  }
+  .Module .subheading {
+    font-size: 3rem;
+    padding: 0 0 2rem;
+  }
+  .Module .tasks h3 {
+    font-size: 2rem;
+    margin: 3rem 0 1.5rem;
+  }
+  .Module .submission-button {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 1800px) {
+  .Module .content {
+    padding: 2rem 4rem;
+  }
+  .Module #title {
+    font-size: 3rem;
+    line-height: 4rem;
+  }
+  .Module .container {
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    padding: 3rem;
+    margin: 3rem auto 0;
+  }
+  .Module .subheading {
+    font-size: 2.5rem;
+    padding: 0 0 1.5rem;
+  }
+  .Module .tasks h3 {
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
+  }
+  .Module li {
+    margin: 1.5rem 0;
+  }
+  .Module li:first-child {
+    margin: 0;
+  }
+  .Module li:last-child {
+    margin: 0;
+  }
+  .Module .submission-button {
+    font-size: 1.5rem;
+    padding: 1.5rem 3rem;
+    margin-top: 3rem;
+  }
+}
+@media (max-width: 1600px) {
+  .Module #title {
+    font-size: 2.5rem;
+    line-height: 3.5rem;
+  }
+  .Module .container {
+    font-size: 1rem;
+    line-height: 2rem;
+    padding: 2.5rem;
+    margin: 2.5rem auto 0;
+  }
+  .Module .subheading {
+    font-size: 2rem;
+    padding: 0 0 1rem;
+  }
+  .Module li {
+    margin: 1.25rem 0;
+  }
+  .Module li:first-child {
+    margin: 0;
+  }
+  .Module li:last-child {
+    margin: 0;
+  }
+}
+@media (max-width: 1440px) {
+  .Module .content {
+    padding: 2rem 3rem;
+  }
+  .Module .title {
+    padding: 30px 10px;
+    margin-bottom: 2rem;
+  }
+  .Module .submission-button {
+    padding: 1rem 2rem;
+    margin-top: 2.5rem;
+  }
+}
+@media (max-width: 1200px) {
+  .Module #title {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+  .Module .container {
+    padding: 2rem;
+    margin: 2rem auto 0;
+  }
+  .Module .subheading {
+    font-size: 1.75rem;
+  }
+  .Module .tasks h3 {
+    font-size: 1.4rem;
+    margin: 1.5rem 0 0.7rem;
+  }
+  .Module .submission-button {
+    font-size: 1.4rem;
+    margin-top: 2rem;
+  }
+}
+@media (max-width: 768px) {
+  .Module .title {
+    margin-left: 1.5rem;
+  }
+  .Module .container {
+    margin-left: 1.5rem;
+  }
+  .Module .submission-button {
+    margin-left: 1.5rem;
+  }
+}
+@media (max-width: 500px) {
+  .Module .content {
+    padding: 1.5rem;
+  }
+  .Module .title {
+    padding: 20px 10px;
+  }
+  .Module #title {
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+  }
+  .Module .container {
+    padding: 1.5rem;
+  }
+  .Module .subheading {
+    font-size: 1.5rem;
+  }
+  .Module .tasks h3 {
+    font-size: 1.2rem;
+  }
+  .Module .submission-button {
+    font-size: 1.2rem;
+    padding: 0.75rem 2rem;
+  }
+}
+@media (max-width: 375px) {
+  .Module #title {
+    font-size: 1.7rem;
+    line-height: 2.3rem;
+  }
+  .Module .subheading {
+    font-size: 1.4rem;
+  }
+  .Module .tasks h3 {
+    font-size: 1.1rem;
+  }
+}

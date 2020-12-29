@@ -1,0 +1,105 @@
+.AdminDashboard {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+}
+.AdminDashboard .content {
+  width: 100%;
+}
+.AdminDashboard main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 3rem 1rem 0;
+}
+
+/* Header */
+.AdminDashboard .title {
+  font-size: 4rem;
+  font-weight: 600;
+  font-family: 'Poppins', 'Ariel';
+  padding: 4rem;
+  box-shadow: 2px 2px 10px #ddd;
+}
+
+.AdminDashboard .students {
+  margin-left: 3rem;
+}
+.AdminDashboard h2 {
+  font-size: 3.5rem;
+  font-weight: 500;
+  font-family: 'Poppins', 'Ariel';
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 2200px) {
+  .AdminDashboard h2 {
+    font-size: 3rem;
+  }
+  .AdminDashboard .title {
+    font-size: 3.5rem;
+  }
+}
+@media (max-width: 1800px) {
+  .AdminDashboard h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  .AdminDashboard .title {
+    font-size: 3rem;
+    padding: 3.5rem;
+  }
+}
+@media (max-width: 1600px) {
+  .AdminDashboard h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  .AdminDashboard .title {
+    font-size: 2.5rem;
+    padding: 3rem;
+  }
+}
+@media (max-width: 1440px) {
+  .AdminDashboard main {
+    padding: 2rem 1rem 0 0;
+  }
+}
+@media (max-width: 1200px) {
+  .AdminDashboard h2 {
+    font-size: 1.8rem;
+  }
+  .AdminDashboard .title {
+    font-size: 2rem;
+    padding: 2.5rem;
+  }
+}
+@media (max-width: 1024px) {
+  .AdminDashboard main {
+    flex-direction: column;
+  }
+}
+@media (max-width: 768px) {
+  .AdminDashboard .title,
+  .AdminDashboard main {
+    margin-left: 1.5rem;
+  }
+}
+@media (max-width: 500px) {
+  .AdminDashboard h2 {
+    font-size: 1.5rem;
+  }
+  .AdminDashboard .title {
+    font-size: 1.8rem;
+    padding: 2.3rem;
+  }
+}
+@media (max-width: 375px) {
+  .AdminDashboard h2 {
+    font-size: 1.2rem;
+  }
+  .AdminDashboard .title {
+    font-size: 1.7rem;
+    padding: 2.3rem;
+  }
+}

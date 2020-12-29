@@ -1,0 +1,145 @@
+.Confirm {
+  min-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.Confirm img {
+  width: 10rem;
+  margin-bottom: 3rem;
+}
+.Confirm h1 {
+  font-size: 5rem;
+  font-weight: 600;
+  color: #fda929;
+  margin-bottom: 3rem;
+}
+.Confirm div {
+  display: flex;
+  flex-direction: column;
+}
+.Confirm h4 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+.Confirm p {
+  font-size: 2.5rem;
+}
+.Confirm button {
+  padding: 1rem;
+  font-size: 2.7rem;
+  margin-top: 4rem;
+  width: 35%;
+  border-radius: 50px;
+  background-color: #fda929;
+  border: none;
+  align-self: center;
+}
+.Confirm button a {
+  color: white;
+}
+.Confirm button:focus {
+  outline: none;
+}
+
+@media (max-width: 2200px) {
+  .Confirm h1 {
+    font-size: 4.5rem;
+  }
+  .Confirm h4 {
+    font-size: 2.5rem;
+  }
+  .Confirm p {
+    font-size: 2rem;
+  }
+  .Confirm button {
+    font-size: 2.5rem;
+  }
+}
+@media (max-width: 1800px) {
+  .Confirm img {
+    width: 8rem;
+  }
+  .Confirm h1 {
+    font-size: 4rem;
+  }
+  .Confirm h4 {
+    font-size: 2rem;
+  }
+  .Confirm p {
+    font-size: 1.5rem;
+  }
+  .Confirm button {
+    font-size: 2rem;
+    width: 45%;
+  }
+}
+@media (max-width: 1600px) {
+  .Confirm img {
+    width: 7rem;
+    margin-bottom: 2rem;
+  }
+  .Confirm h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+  .Confirm h4 {
+    margin-bottom: 1.5rem;
+  }
+  .Confirm button {
+    font-size: 1.5rem;
+    padding: 0.75rem;
+    width: 40%;
+    margin-top: 3rem;
+  }
+}
+@media (max-width: 1200px) {
+  .Confirm img {
+    width: 6rem;
+    margin-bottom: 1.5rem;
+  }
+  .Confirm h1 {
+    font-size: 2.7rem;
+  }
+  .Confirm h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1.25rem;
+  }
+  .Confirm p {
+    font-size: 1rem;
+  }
+  .Confirm button {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    width: 40%;
+    margin-top: 1.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .Confirm {
+    padding: 0 3rem;
+  }
+  .Confirm img {
+    width: 4.5rem;
+    margin-bottom: 1rem;
+  }
+  .Confirm h1 {
+    font-size: 2.3rem;
+    margin-bottom: 1.5rem;
+    line-height: 3rem;
+  }
+  .Confirm h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    line-height: 2rem;
+  }
+  .Confirm p {
+    line-height: 2rem;
+  }
+  .Confirm button {
+    width: 50%;
+    margin-top: 2rem;
+  }
+}
