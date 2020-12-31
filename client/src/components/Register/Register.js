@@ -60,7 +60,7 @@ class Register extends React.Component {
               onChange={this.handleChange}
               required
             />
-            <button type="submit">Register</button>
+            <button type="submit">Submit</button>
           </form>
         </div>
       </div>

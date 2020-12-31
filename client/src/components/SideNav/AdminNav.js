@@ -25,7 +25,7 @@ class AdminNav extends React.Component {
             </a>
             <div>
               <a href="/admin_dashboard">Dashboard</a>
-              <a href="/create_assignments">Create Assingments</a>
+              <a href="/create_assignments">Create Assignments</a>
               <a href="/">Sign Out</a>
             </div>
           </nav>
