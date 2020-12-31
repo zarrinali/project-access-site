@@ -1,16 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const airtable = require('airtable');
+const base = require('../airtable');
 const crypto = require('crypto-random-string');
 const cryptoLength = 10;
-const authControllers = require('./authControllers');
-
-// Configure Airtable with the API key and Base key
-airtable.configure({
-  apiKey: process.env.TOKEN,
-  endpointUrl: 'https://api.airtable.com',
-});
-const base = airtable.base(process.env.DATABASE);
 
 /**
  * Make verification token for email verification
@@ -18,19 +10,16 @@ const base = airtable.base(process.env.DATABASE);
  * @return {object}
  */
 async function makeVerificationToken(recordId) {
-  const data = await base('RegistrationData').create([
-    {
-      fields: {
-        verificationToken:
-          recordId +
-          crypto({
-            length: cryptoLength,
-          }),
-        dateTime: new Date(),
-        persons: [recordId],
-      },
+  const data = await base('RegistrationData').create([{
+    fields: {
+      verificationToken: recordId +
+        crypto({
+          length: cryptoLength,
+        }),
+      dateTime: new Date(),
+      persons: [recordId],
     },
-  ]);
+  }, ]);
   return data[0].fields.verificationToken;
 }
 
@@ -70,8 +59,7 @@ router.get('/verification/:verificationToken', async function (req, res, next) {
 
     if (userByToken[0].fields.email[0] === userByRecordId[0].fields.email) {
       base('Persons').update(
-        recordId,
-        {
+        recordId, {
           isVerified: true,
         },
         function (err) {

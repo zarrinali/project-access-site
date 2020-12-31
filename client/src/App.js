@@ -37,7 +37,7 @@ class App extends Component {
             <PublicRoute restricted={false} component={Bootcamp} path="/bootcamp" exact />
             <PublicRoute restricted={false} component={Program} path="/program" exact />
             <PublicRoute restricted={false} component={Confirm} path="/confirm" exact />
-            <PublicRoute restricted={false} component={Success} path="/success" exact />
+            <PublicRoute restricted={false} component={Success} path="/confirm/:verificationToken" exact />
             <PublicRoute restricted={true} component={SignUp} path="/signup" exact />
             <PublicRoute restricted={true} component={Login} path="/login" exact />
             <PrivateRoute component={Dashboard} path="/dashboard" exact />

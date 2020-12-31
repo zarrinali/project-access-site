@@ -1,42 +1,24 @@
 const express = require('express');
 const router = express.Router();
-const airtable = require('airtable');
+const base = require('../airtable');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const mailing = require('../mailing');
-const crypto = require('crypto-random-string');
-const { makeVerificationToken } = require('./verificationControllers');
-
-// Configure Airtable with the API key and Base key
-airtable.configure({
-  apiKey: process.env.TOKEN,
-  endpointUrl: 'https://api.airtable.com',
-});
-const base = airtable.base(process.env.DATABASE);
+const {
+  makeVerificationToken
+} = require('./verificationControllers');
 
 /**
  * For resources that require authorization
  * @param {object} req
  * @param {object} res
+ * @param {function} next
  * @return {object}
  */
-function redirectIfLoggedIn(req, res) {
-  if (req.cookies._uid) {
-    return res.send(true);
-  }
-  return res.send(false);
-}
-
-/**
- * For resources that require authorization
- * @param {object} req
- * @param {object} res
- * @return {object}
- */
-function loginRequired(req, res) {
-  if (req.cookies._uid) {
-    next();
+function loginRequired(req, res, next) {
+  if (req._uid) {
+    return next();
   }
   return res.status(401).json({
     message: 'Unauthorized access to the requested resources.',
@@ -80,7 +62,10 @@ async function findMatchUser(req) {
   return user;
 }
 
-// TODO: coordinate with frontend on how to work with this
+/**
+ * Check if the user is logged in
+ * @return {boolean}
+ */
 router.get('/isLoggedIn', function (req, res) {
   if (req.cookies._uid) {
     return res.status(200).send(true);
@@ -100,8 +85,7 @@ router.post('/signup', async function (req, res, next) {
       const hashPassword = bcrypt.hashSync(req.body.user.password, saltRounds);
 
       // Create a new user in DB
-      base('Persons').create(
-        {
+      base('Persons').create({
           email: req.body.user.email,
           password: hashPassword,
         },
@@ -134,11 +118,6 @@ router.post('/signup', async function (req, res, next) {
   }
 });
 
-// TODO: coordinate with frontend on how to work with this
-router.get('/login', redirectIfLoggedIn, function (req, res) {
-  return res.status(200).end();
-});
-
 /**
  * Fetch email and password from DB
  * and compare with user-provided email and password to authenticate
@@ -152,13 +131,11 @@ router.post('/login', async function (req, res, next) {
 
       // Compare user's password and the password in DB
       if (bcrypt.compareSync(req.body.user.password, user.password)) {
-        const token = jwt.sign(
-          {
+        const token = jwt.sign({
             email: user.email,
             _id: user.recordId,
           },
-          process.env.SECRET_ACCESS_TOKEN,
-          {
+          process.env.SECRET_ACCESS_TOKEN, {
             algorithm: 'HS256',
             expiresIn: process.env.JWT_EXPIRY_SECONDS + 's',
           }
@@ -189,11 +166,16 @@ router.post('/login', async function (req, res, next) {
   }
 });
 
+/**
+ * Clear user's authentication token
+ */
 router.get('/logout', function (req, res, next) {
   try {
     res.clearCookie('authorization');
     res.clearCookie('_uid');
-    res.redirect('/');
+    return res.status(200).json({
+      message: 'Logout successfully.',
+    });
   } catch (err) {
     return next(err);
   }
@@ -201,6 +183,5 @@ router.get('/logout', function (req, res, next) {
 
 module.exports = {
   loginRequired,
-  // redirectIfLoggedIn,
   router,
 };

@@ -17,6 +17,8 @@ function authenticateToken(req, res, next) {
             if (err) {
                 res.clearCookie('authorization');
                 res.clearCookie('_uid');
+                req._uid = undefined;
+
                 return next();
             }
 
@@ -26,6 +28,7 @@ function authenticateToken(req, res, next) {
                     maxAge: process.env.JWT_EXPIRY_SECONDS * 1000,
                 });
             }
+            req._uid = decode._id;
 
             refreshToken(decode, res);
 
@@ -33,10 +36,16 @@ function authenticateToken(req, res, next) {
         });
     } else {
         res.clearCookie('_uid');
+        req._uid = undefined;
         next();
     }
 }
 
+/**
+ * Authenticate the token to validate the user
+ * @param {object} payload
+ * @param {object} res
+ */
 function refreshToken(payload, res) {
     const timeNow = Math.round(Number(new Date()) / 1000);
 
