@@ -1,14 +1,19 @@
 .Dropdown {
   text-align: left;
 }
-.Dropdown button {
-  background-color: transparent;
-  border: none;
+.Dropdown .btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.Dropdown button:focus {
-  outline: none;
+.Dropdown .btn:hover {
+  cursor: pointer;
 }
-.Dropdown button p {
+.Dropdown .icon {
+  color: #fda929;
+  margin-left: 2rem;
+}
+.Dropdown .btn p {
   color: #fda929;
   font-size: 2.1rem;
   line-height: 3rem;
@@ -33,7 +38,7 @@
 }
 
 @media (max-width: 1800px) {
-  .Dropdown button p {
+  .Dropdown .btn p {
     font-size: 1.9rem;
     line-height: 2.8rem;
   }
@@ -46,7 +51,7 @@
 }
 
 @media (max-width: 1440px) {
-  .Dropdown button p {
+  .Dropdown .btn p {
     font-size: 1.7rem;
     line-height: 2.5rem;
   }

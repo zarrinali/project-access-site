@@ -9,6 +9,8 @@ class SignUpContent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      first: '',
+      last: '',
       email: '',
       password: '',
     };
@@ -33,6 +35,8 @@ class SignUpContent extends React.Component {
     const user = {
       email: this.state.email,
       password: this.state.password,
+      first: this.state.first,
+      last: this.state.last,
     };
 
     axios
@@ -56,6 +60,30 @@ class SignUpContent extends React.Component {
             <h1>Sign Up</h1>
             <img src={key} className={styles.key} alt="key" />
             <form onSubmit={this.handleSubmit}>
+              <div className={styles.name}>
+                <div>
+                  <label for="first">First Name</label>
+                  <input
+                    type="text"
+                    id="first"
+                    name="first"
+                    value={this.state.first}
+                    onChange={this.handleChange}
+                    required
+                  />
+                </div>
+                <div>
+                  <label for="first">Last Name</label>
+                  <input
+                    type="text"
+                    id="last"
+                    name="last"
+                    value={this.state.last}
+                    onChange={this.handleChange}
+                    required
+                  />
+                </div>
+              </div>
               <label for="email">Email</label>
               <input
                 type="email"

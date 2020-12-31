@@ -42,7 +42,7 @@ class Register extends React.Component {
             will get in touch!
           </p>
           <form onSubmit={this.handleSubmit}>
-            <label for="name">First and Last Name</label>
+            <label for="name">First Name</label>
             <input
               type="text"
               id="name"

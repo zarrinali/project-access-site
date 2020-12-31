@@ -49,7 +49,7 @@
 .SignUp form {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 65%;
 }
 
 .SignUp label {
@@ -63,8 +63,19 @@
   border: none;
 }
 
+.SignUp .name {
+  display: flex;
+}
+
+.SignUp .name input {
+  width: 100%;
+}
+
+.SignUp .name div:first-child {
+  margin-right: 1.5rem;
+}
+
 .SignUp button {
-  /* width: 45%; */
   padding: 0.5rem 4rem;
   border-radius: 50px;
   border: none;
@@ -78,7 +89,8 @@
 }
 
 .SignUp button:hover {
-  background-color: #2a3038;
+  background-color: #fda929;
+  cursor: pointer;
 }
 
 .SignUp input:focus,
