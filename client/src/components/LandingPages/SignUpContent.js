@@ -36,7 +36,7 @@ class SignUpContent extends React.Component {
     };
 
     axios
-      .post('http://localhost:9000/api/auth/signup', { user })
+      .post(`${window.location.origin.toString()}/api/auth/signup`, { user })
       .then((res) => {
         if (res.data.results) {
           this.props.history.push('/confirm');

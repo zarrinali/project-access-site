@@ -37,7 +37,7 @@ class LoginContent extends React.Component {
     };
 
     axios
-      .post('http://localhost:9000/api/auth/login', { user })
+      .post(`${window.location.origin.toString()}/api/auth/login`, { user })
       .then((res) => {
         this.props.history.push('/dashboard');
       })

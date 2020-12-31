@@ -14,7 +14,7 @@ class SuccessContent extends React.Component {
   
   componentDidMount() {
     axios
-      .get(`http://localhost:9000/api/auth/verification/${this.state.verificationToken}`)
+      .get(`${window.location.origin.toString()}/api/auth/verification/${this.state.verificationToken}`)
       .catch((err) => console.log(err));
   }
 
