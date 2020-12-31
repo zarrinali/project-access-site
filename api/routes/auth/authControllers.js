@@ -6,9 +6,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const mailing = require('../mailing');
 const crypto = require('crypto-random-string');
-const {
-  makeVerificationToken
-} = require('./verificationControllers');
+const { makeVerificationToken } = require('./verificationControllers');
 
 // Configure Airtable with the API key and Base key
 airtable.configure({
@@ -21,7 +19,7 @@ const base = airtable.base(process.env.DATABASE);
  * For resources that require authorization
  * @param {object} req
  * @param {object} res
- * @param {function} next
+ * @return {object}
  */
 function redirectIfLoggedIn(req, res) {
   if (req.cookies._uid) {
@@ -30,22 +28,13 @@ function redirectIfLoggedIn(req, res) {
   return res.send(false);
 }
 
-function loginRequired(req, res) {
-  if (req.cookies._uid) {
-    return res.status(200).json({});
-  }
-  return res.status(401).json({
-    message: 'Unauthorized access to the requested resources.',
-  });
-}
-
 /**
  * For resources that require authorization
  * @param {object} req
  * @param {object} res
- * @param {function} next
+ * @return {object}
  */
-function loginRequiredRequest(req, res) {
+function loginRequired(req, res) {
   if (req.cookies._uid) {
     next();
   }
@@ -111,7 +100,8 @@ router.post('/signup', async function (req, res, next) {
       const hashPassword = bcrypt.hashSync(req.body.user.password, saltRounds);
 
       // Create a new user in DB
-      base('Persons').create({
+      base('Persons').create(
+        {
           email: req.body.user.email,
           password: hashPassword,
         },
@@ -162,11 +152,13 @@ router.post('/login', async function (req, res, next) {
 
       // Compare user's password and the password in DB
       if (bcrypt.compareSync(req.body.user.password, user.password)) {
-        const token = jwt.sign({
+        const token = jwt.sign(
+          {
             email: user.email,
             _id: user.recordId,
           },
-          process.env.SECRET_ACCESS_TOKEN, {
+          process.env.SECRET_ACCESS_TOKEN,
+          {
             algorithm: 'HS256',
             expiresIn: process.env.JWT_EXPIRY_SECONDS + 's',
           }

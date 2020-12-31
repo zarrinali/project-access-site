@@ -10,7 +10,6 @@ class Dropdown extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <div className="Dropdown">
         <div>

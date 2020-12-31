@@ -3,7 +3,7 @@ import styles from './LoginContent.module.css';
 import logo from '../../assets/images/austria.png';
 import key from '../../assets/images/logo_key_white.png';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class LoginContent extends React.Component {
   constructor(props) {
@@ -16,17 +16,6 @@ class LoginContent extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  componentDidMount() {
-    axios
-      .get('http://localhost:9000/api/auth/isLoggedIn')
-      .then((res) => {
-        this.setState({
-          isAuth: res.data,
-        });
-      })
-      .catch((err) => console.log(err));
   }
 
   handleChange(event) {
@@ -50,17 +39,13 @@ class LoginContent extends React.Component {
     axios
       .post('http://localhost:9000/api/auth/login', { user })
       .then((res) => {
-        this.setState({
-          isAuth: res.data.results,
-        });
+        this.props.history.push('/dashboard');
       })
       .catch((err) => console.log(err));
   }
 
   render() {
-    return this.state.isAuth ? (
-      <Redirect to="/" />
-    ) : (
+    return (
       <div className={styles.Login}>
         <main>
           <a href="/" className={styles.logo_link}>
@@ -101,4 +86,4 @@ class LoginContent extends React.Component {
   }
 }
 
-export default LoginContent;
+export default withRouter(LoginContent);

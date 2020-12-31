@@ -2,6 +2,7 @@ import React from 'react';
 import './SideNav.css';
 import logo from '../../assets/images/austria.png';
 import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
+import axios from 'axios';
 
 class SideNav extends React.Component {
   state = {
@@ -10,6 +11,12 @@ class SideNav extends React.Component {
   Toggle = () => {
     this.setState({ toggle: !this.state.toggle });
   };
+
+  logout() {
+    axios
+      .get('http://localhost:9000/api/auth/logout')
+      .catch((err) => console.log(err));
+  }
 
   render() {
     return (
@@ -27,7 +34,7 @@ class SideNav extends React.Component {
               <a href="/dashboard">Dashboard</a>
               <a href="/studentaccount">Account Profile</a>
               <a href="/">Application Tracker</a>
-              <a href="/">Sign Out</a>
+              <a href="/" onClick={this.logout}>Sign Out</a>
             </div>
           </nav>
         </div>

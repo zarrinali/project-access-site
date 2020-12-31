@@ -3,7 +3,6 @@ import styles from './SignUpContent.module.css';
 import logo from '../../assets/images/austria.png';
 import key from '../../assets/images/logo_key_white.png';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 
 class SignUpContent extends React.Component {
@@ -16,17 +15,6 @@ class SignUpContent extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  componentDidMount() {
-    axios
-      .get('http://localhost:9000/api/auth/isLoggedIn')
-      .then((res) => {
-        this.setState({
-          isAuth: res.data,
-        });
-      })
-      .catch((err) => console.log(err));
   }
 
   handleChange(event) {
@@ -58,9 +46,7 @@ class SignUpContent extends React.Component {
   }
 
   render() {
-    return this.state.isAuth ? (
-      <Redirect to="/" />
-    ) : (
+    return (
       <div className={styles.SignUp}>
         <main>
           <a href="/" className={styles.logo_link}>
