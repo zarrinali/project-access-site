@@ -35,8 +35,8 @@ class SignUpContent extends React.Component {
     const user = {
       email: this.state.email,
       password: this.state.password,
-      first: this.state.first,
-      last: this.state.last,
+      firstName: this.state.first,
+      lastName: this.state.last,
     };
 
     axios

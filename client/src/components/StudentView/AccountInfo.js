@@ -5,7 +5,7 @@ import axios from "axios";
 function AccountInfo() {
     useEffect(() => {
         axios
-            .get('http://localhost:9000/api/user/profile')
+            .get(`${window.location.origin.toString()}/api/user/profile`)
             .then((res) => {
                 console.log(res);
             });

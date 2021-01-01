@@ -14,7 +14,7 @@ class SideNav extends React.Component {
 
   logout() {
     axios
-      .get('http://localhost:9000/api/auth/logout')
+      .get(`${window.location.origin.toString()}/api/auth/logout`)
       .catch((err) => console.log(err));
   }
 
