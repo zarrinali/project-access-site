@@ -1,8 +1,6 @@
 import React from 'react';
 import './Loading.css';
 import key from '../../assets/images/logo_key_white.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons';
 
 class Loading extends React.Component {
   render() {

@@ -9,7 +9,7 @@
   font-family: 'Poppins', 'Ariel';
   line-height: 4.5rem;
 }
-hr {
+.Home hr {
   border: dotted #fda929 6px;
   border-bottom: none;
   width: 10%;

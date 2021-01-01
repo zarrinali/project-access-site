@@ -33,8 +33,10 @@ class SideNav extends React.Component {
             <div>
               <a href="/dashboard">Dashboard</a>
               <a href="/studentaccount">Account Profile</a>
-              <a href="/">Application Tracker</a>
-              <a href="/" onClick={this.logout}>Sign Out</a>
+              <a href="/application_tracker">Application Tracker</a>
+              <a href="/" onClick={this.logout}>
+                Sign Out
+              </a>
             </div>
           </nav>
         </div>
