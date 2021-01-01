@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { checkLogin } from './utils';
+import Loading from './components/Loading/Loading';
 
 const PublicRoute = ({ component: Component, restricted, ...rest }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -32,7 +33,7 @@ const PublicRoute = ({ component: Component, restricted, ...rest }) => {
     />
   ) : (
     <>
-      <h1>Loading</h1>
+      <Loading />
     </>
   );
 };
