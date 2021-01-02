@@ -32,10 +32,10 @@ function loginRequired(req, res, next) {
  * @return {object}
  */
 async function sendVerificationEmail(baseUrl, user) {
-  const token = await makeVerificationToken(user.recordId);
+  const token = await makeVerificationToken(user.PersonID);
 
   const mailBody = {
-    email: user.email,
+    email: user.PersonEmail,
     subject: 'Please verify your email - Project Access Austria',
     text: `Please verify your email at http://${baseUrl}/confirm/${token}`,
     html: `<b>Please verify your email at http://${baseUrl}/confirm/${token}</b>`,
@@ -55,7 +55,7 @@ async function findMatchUser(req) {
     .select({
       maxRecords: 1,
       view: 'Grid view',
-      filterByFormula: `{email} = "${req.body.user.email}"`,
+      filterByFormula: `{PersonEmail} = "${req.body.user.email}"`,
     })
     .all();
 
@@ -67,7 +67,7 @@ async function findMatchUser(req) {
  * @return {boolean}
  */
 router.get('/isLoggedIn', function (req, res) {
-  if (req.cookies._uid) {
+  if (req._uid) {
     return res.status(200).send(true);
   }
   return res.status(200).send(false);
@@ -86,8 +86,10 @@ router.post('/signup', async function (req, res, next) {
 
       // Create a new user in DB
       base('Persons').create({
-          email: req.body.user.email,
-          password: hashPassword,
+          PersonEmail: req.body.user.email,
+          PersonPassword: hashPassword,
+          PersonFirstName: req.body.user.firstName,
+          PersonLastName: req.body.user.lastName,
         },
         async function (err, records) {
           if (err) {
@@ -101,7 +103,7 @@ router.post('/signup', async function (req, res, next) {
           await sendVerificationEmail(baseUrl, records.fields);
 
           // Make password undefined before sending back to client
-          records.fields.password = undefined;
+          records.fields.PersonPassword = undefined;
           return res.status(201).json({
             results: true,
             message: 'Registration successful!',
@@ -129,11 +131,17 @@ router.post('/login', async function (req, res, next) {
     if (matchUser.length > 0) {
       const user = matchUser[0].fields;
 
+      if (!user.PersonVerified) {
+        return res.status(401).json({
+          message: "User's email has not been verified. Please verify your email.",
+        });
+      }
+
       // Compare user's password and the password in DB
-      if (bcrypt.compareSync(req.body.user.password, user.password)) {
+      if (bcrypt.compareSync(req.body.user.password, user.PersonPassword)) {
         const token = jwt.sign({
-            email: user.email,
-            _id: user.recordId,
+            _id: user.PersonID,
+            email: user.PersonEmail,
           },
           process.env.SECRET_ACCESS_TOKEN, {
             algorithm: 'HS256',

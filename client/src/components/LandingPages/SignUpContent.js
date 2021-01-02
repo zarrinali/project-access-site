@@ -13,6 +13,7 @@ class SignUpContent extends React.Component {
       last: '',
       email: '',
       password: '',
+      disabled: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -32,13 +33,19 @@ class SignUpContent extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
 
+    if (!this.state.disabled) {
+      this.setState({
+        disabled: true,
+      });
+    }
+
     const user = {
       email: this.state.email,
       password: this.state.password,
       firstName: this.state.first,
       lastName: this.state.last,
     };
-
+    
     axios
       .post(`${window.location.origin.toString()}/api/auth/signup`, { user })
       .then((res) => {
@@ -46,7 +53,12 @@ class SignUpContent extends React.Component {
           this.props.history.push('/confirm');
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        this.setState({
+          disabled: false,
+        });
+      });
   }
 
   render() {
@@ -73,7 +85,7 @@ class SignUpContent extends React.Component {
                   />
                 </div>
                 <div>
-                  <label for="first">Last Name</label>
+                  <label for="last">Last Name</label>
                   <input
                     type="text"
                     id="last"
@@ -102,7 +114,9 @@ class SignUpContent extends React.Component {
                 onChange={this.handleChange}
                 required
               />
-              <button type="submit">Register</button>
+              <button type="submit" disabled={this.state.disabled}>
+                {this.state.disabled ? "Registering.." : "Register"}
+              </button>
             </form>
             <p className={styles.sign_up}>
               Already have an account? <a href="/login">Login</a>
