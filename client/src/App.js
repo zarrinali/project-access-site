@@ -17,6 +17,7 @@ import ModuleSix from './ModuleSix.js';
 import Feedback from './Feedback.js';
 import StudentAccount from './StudentAccount.js';
 import Dashboard from './Dashboard.js';
+import ApplicationTracker from './ApplicationTracker.js';
 import AdminDashboard from './AdminDashboard.js';
 import CreateAssignments from './CreateAssignments.js';
 import PublicRoute from './PublicRoute.js';
@@ -37,11 +38,17 @@ class App extends Component {
             <PublicRoute restricted={false} component={Bootcamp} path="/bootcamp" exact />
             <PublicRoute restricted={false} component={Program} path="/program" exact />
             <PublicRoute restricted={false} component={Confirm} path="/confirm" exact />
-            <PublicRoute restricted={false} component={Success} path="/confirm/:verificationToken" exact />
+            <PublicRoute
+              restricted={false}
+              component={Success}
+              path="/confirm/:verificationToken"
+              exact
+            />
             <PublicRoute restricted={true} component={SignUp} path="/signup" exact />
             <PublicRoute restricted={true} component={Login} path="/login" exact />
             <PrivateRoute component={Dashboard} path="/dashboard" exact />
             <PrivateRoute component={StudentAccount} path="/studentaccount" exact />
+            <PrivateRoute component={ApplicationTracker} path="/application_tracker" exact />
             <PrivateRoute component={PreBootcampCourse} path="/prebootcampcourse" exact />
             <PrivateRoute component={ModuleOne} path="/module1" exact />
             <PrivateRoute component={ModuleTwo} path="/module2" exact />
@@ -103,6 +110,9 @@ class App extends Component {
             </Route>
             <Route exact path="/dashboard">
               <Dashboard />
+            </Route>
+            <Route exact path="/application_tracker">
+              <ApplicationTracker />
             </Route>
             <Route exact path="/admin_dashboard">
               <AdminDashboard />

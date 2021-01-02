@@ -1,0 +1,197 @@
+.Tracker {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+}
+.Tracker .content {
+  width: 100%;
+}
+.Tracker .title {
+  font-size: 4rem;
+  font-weight: 600;
+  font-family: 'Poppins', 'Ariel';
+  padding: 4rem;
+  box-shadow: 2px 2px 10px #ddd;
+}
+.Tracker main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 3rem 3rem 0;
+}
+.Tracker .container {
+  margin: 0 0 0 3rem;
+}
+.Tracker .stage {
+  display: flex;
+  align-items: center;
+}
+.Tracker .vertical {
+  border: none;
+  border-left: solid #fda929 15px;
+  height: 250px;
+  width: 15px;
+  margin: 0;
+}
+.Tracker .horizontal {
+  border: none;
+  border-top: solid #fda929 15px;
+  margin: 0;
+}
+.Tracker .even {
+  width: 250px;
+}
+.Tracker .odd {
+  width: 350px;
+}
+.Tracker .unfinished {
+  border-color: #ccc;
+}
+.Tracker h2 {
+  font-size: 3.5rem;
+  font-weight: 500;
+  font-family: 'Poppins', 'Ariel';
+  margin-left: 2rem;
+}
+
+@media (max-width: 2200px) {
+  .Tracker h2 {
+    font-size: 3rem;
+  }
+  .Tracker .title {
+    font-size: 3.5rem;
+  }
+  .Tracker .vertical {
+    border-left-width: 13px;
+    height: 200px;
+    width: 13px;
+  }
+  .Tracker .horizontal {
+    border-top-width: 13px;
+  }
+  .Tracker .even {
+    width: 200px;
+  }
+  .Tracker .odd {
+    width: 300px;
+  }
+}
+@media (max-width: 1800px) {
+  .Tracker h2 {
+    font-size: 2.5rem;
+  }
+  .Tracker .title {
+    font-size: 3rem;
+    padding: 3.5rem;
+  }
+  .Tracker .vertical {
+    border-left-width: 13px;
+    height: 150px;
+    width: 13px;
+  }
+  .Tracker .horizontal {
+    border-top-width: 13px;
+  }
+  .Tracker .even {
+    width: 150px;
+  }
+  .Tracker .odd {
+    width: 250px;
+  }
+}
+@media (max-width: 1600px) {
+  .Tracker h2 {
+    font-size: 2rem;
+  }
+  .Tracker .title {
+    font-size: 2.5rem;
+    padding: 3rem;
+  }
+  .Tracker .vertical {
+    border-left-width: 10px;
+    height: 100px;
+    width: 10px;
+  }
+  .Tracker .horizontal {
+    border-top-width: 10px;
+  }
+  .Tracker .even {
+    width: 100px;
+  }
+  .Tracker .odd {
+    width: 200px;
+  }
+}
+@media (max-width: 1440px) {
+  .Tracker main {
+    padding: 2rem 0 0 2rem;
+  }
+}
+@media (max-width: 1200px) {
+  .Tracker .container {
+    margin: 0 0 0 2rem;
+  }
+  .Tracker h2 {
+    font-size: 1.8rem;
+    line-height: 2.3rem;
+  }
+  .Tracker .title {
+    font-size: 2rem;
+    padding: 2.5rem;
+  }
+}
+@media (max-width: 1024px) {
+  .Tracker .container {
+    margin: 0 0 2rem 2rem;
+  }
+  .Tracker .odd {
+    width: 170px;
+  }
+}
+@media (max-width: 768px) {
+  .Tracker .title {
+    margin-left: 1.5rem;
+  }
+  .Tracker main {
+    margin-left: 2.5rem;
+  }
+  .Tracker .container {
+    margin: 0 0 2rem 0;
+    width: 95%;
+  }
+}
+@media (max-width: 500px) {
+  .Tracker h2 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-left: 1rem;
+  }
+  .Tracker .title {
+    font-size: 1.8rem;
+    padding: 2.3rem;
+  }
+  .Tracker .even {
+    width: 90px;
+  }
+  .Tracker .odd {
+    width: 120px;
+  }
+}
+@media (max-width: 375px) {
+  .Tracker .container {
+    width: 90%;
+  }
+  .Tracker h2 {
+    font-size: 1.2rem;
+  }
+  .Tracker .title {
+    font-size: 1.7rem;
+    padding: 2.3rem;
+  }
+  .Tracker .even {
+    width: 80px;
+  }
+  .Tracker .odd {
+    width: 100px;
+  }
+}

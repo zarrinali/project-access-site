@@ -9,13 +9,13 @@
   font-family: 'Poppins', 'Ariel';
   line-height: 4.5rem;
 }
-hr {
+.Bootcamp hr {
   border: dotted #fda929 6px;
   border-bottom: none;
   width: 10%;
   margin: 2rem auto;
 }
-hr ~ p {
+.Bootcamp hr ~ p {
   font-size: 1.2rem;
   line-height: 2.2rem;
 }
