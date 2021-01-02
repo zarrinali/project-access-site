@@ -1,8 +1,20 @@
+import axios from 'axios';
 import React from 'react';
 import SideNav from '../SideNav/SideNav';
 import './DashboardContent.css';
 
 class DashboardContent extends React.Component {
+  componentDidMount() {
+    console.log(`${window.location.origin.toString()}/api/course/assignmentDeadlines`);
+    axios
+      .get(`${window.location.origin.toString()}/api/course/assignmentDeadlines`)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
   render() {
     return (
       <div className="Dashboard">
