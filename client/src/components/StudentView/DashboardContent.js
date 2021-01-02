@@ -10,55 +10,44 @@ class DashboardContent extends React.Component {
       assignments: [],
       lateAssignments: [],
     };
-
-    this.test = this.test.bind(this);
   }
 
   componentDidMount() {
     axios
       .get(`${window.location.origin.toString()}/api/course/assignmentDeadlines`)
       .then((res) => {
-        const test = [];
+        const assignmentList = [];
         res.data.assignments.forEach(function (assignment) {
-          test.push(
+          const date = new Date(assignment.AssignmentDeadlineDateTime);
+          const formatDate = date.getDate() + "/" + (date.getMonth() + 1);
+          assignmentList.push(
             <div className="assignment">
-              <p className="date">${assignment.AssignmentDeadlineDateTime}</p>
-              <p className="name">${assignment.StudentAssignmentID}</p>
+              <p className="date">{formatDate}</p>
+              <p className="name">{assignment.StudentAssignmentID}</p>
             </div>
           );
         });
 
-        const testtwo = [];
+        const lateAssignmentList = [];
         res.data.lateAssignments.forEach(function (assignment) {
-          testtwo.push(
+          const date = new Date(assignment.AssignmentDeadlineDateTime);
+          const formatDate = date.getDate() + "/" + (date.getMonth() + 1);
+          lateAssignmentList.push(
             <div className="assignment">
-              <p className="date">${assignment.AssignmentDeadlineDateTime}</p>
-              <p className="name">${assignment.StudentAssignmentID}</p>
+              <p className="date">{formatDate}</p>
+              <p className="name">{assignment.StudentAssignmentID}</p>
             </div>
           );
         });
 
         this.setState({
-          assignments: test,
-          lateAssignments: testtwo,
+          assignments: assignmentList,
+          lateAssignments: lateAssignmentList,
         });
       })
       .catch((err) => {
         console.log(err);
       });
-  }
-
-  test() {
-    console.log('test');
-
-    this.state.assignments.map((assignment) => {
-      return (
-        <div className="assignment">
-          <p className="date">${assignment.AssignmentDeadlineDateTime}</p>
-          <p className="name">${assignment.StudentAssignmentID}</p>
-        </div>
-      );
-    });
   }
 
   render() {
@@ -98,7 +87,6 @@ class DashboardContent extends React.Component {
                   <p className="date">11/4</p>
                   <p className="name">Assignment 3</p>
                 </div>
-                {this.test()}
                 {this.state.assignments}
               </div>
               <div>

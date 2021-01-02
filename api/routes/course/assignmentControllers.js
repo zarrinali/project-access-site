@@ -39,8 +39,8 @@ router.get('/assignmentDeadlines', loginRequired, async function (req, res, next
 
         fetchNextPage();
       });
-    console.log(assignments);
-    return res.status(200).json({
+
+      return res.status(200).json({
       assignments: assignments,
       lateAssignments: lateAssignments,
     });
