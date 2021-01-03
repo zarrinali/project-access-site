@@ -18,7 +18,6 @@ class FeedbackContent extends React.Component {
       .get(`${window.location.origin.toString()}/api/course/assignmentFeedback`)
       .then((res) => {
         const feedbackList = [];
-        let num = 1;
 
         res.data.forEach(function (assignment) {
           feedbackList.push(
@@ -29,7 +28,6 @@ class FeedbackContent extends React.Component {
               <p>{assignment.AssignmentInstructorFeedback}</p>
             </div>
           );
-          num = num + 1;
         });
 
         this.setState({
