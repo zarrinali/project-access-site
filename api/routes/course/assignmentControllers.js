@@ -29,16 +29,6 @@ async function findAssignmentsForStudent(studentId) {
   return results;
 }
 
-router.get('/studentInformation', loginRequired, async function (req, res, next) {
-  try {
-    const student = await findMatchStudent(req._uid);
-    console.log(student);
-    return res.status(200).json(student);
-  } catch (err) {
-    return next(err);
-  }
-});
-
 router.get('/assignmentDeadlines', loginRequired, async function (req, res, next) {
   try {
     const student = await findMatchStudent(req._uid);

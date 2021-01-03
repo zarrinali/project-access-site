@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const base = require('../airtable');
+const {
+  loginRequired
+} = require('../auth/authControllers');
 
 /**
  * Find student that matches the person id provided
@@ -24,6 +27,15 @@ async function findMatchStudent(personId) {
 
   return student;
 }
+
+router.get('/studentInformation', loginRequired, async function (req, res, next) {
+  try {
+    const student = await findMatchStudent(req._uid);
+    return res.status(200).json(student);
+  } catch (err) {
+    return next(err);
+  }
+});
 
 module.exports = {
   findMatchStudent,
