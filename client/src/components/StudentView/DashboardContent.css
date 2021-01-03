@@ -1,0 +1,207 @@
+.Dashboard {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+}
+.Dashboard .content {
+  width: 100%;
+}
+.Dashboard main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 3rem 1rem 0;
+}
+.Dashboard .container {
+  margin: 0 0 0 3rem;
+  width: 38%;
+}
+.Dashboard h2 {
+  font-size: 3.5rem;
+  font-weight: 500;
+  font-family: 'Poppins', 'Ariel';
+  margin-bottom: 2.5rem;
+}
+
+/* Header */
+.Dashboard .title {
+  font-size: 4rem;
+  font-weight: 600;
+  font-family: 'Poppins', 'Ariel';
+  padding: 4rem;
+  box-shadow: 2px 2px 10px #ddd;
+}
+
+/* Courses */
+.course {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fda929;
+  border-radius: 30px;
+  margin: 0 0 2rem 0;
+}
+.course h3 {
+  font-size: 2.5rem;
+  padding: 3rem 0;
+  color: #2a3038;
+}
+
+/* Upcoming Assignments */
+.assignments > div {
+  margin-bottom: 2.5rem;
+}
+.assignment {
+  background-color: #00b497;
+  display: flex;
+  margin: 1rem 0;
+  padding: 1rem;
+  color: white;
+  border-radius: 10px;
+  font-size: 2.25rem;
+}
+.assignment .date {
+  margin-right: 1.5rem;
+}
+
+@media (max-width: 2200px) {
+  .Dashboard .container {
+    width: 40%;
+  }
+  .Dashboard h2 {
+    font-size: 3rem;
+  }
+  .Dashboard .title {
+    font-size: 3.5rem;
+  }
+  .course h3 {
+    font-size: 2rem;
+    padding: 2.75rem 0;
+  }
+  .assignment {
+    padding: 1.5rem 1rem;
+    font-size: 1.75rem;
+  }
+}
+@media (max-width: 1800px) {
+  .Dashboard h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  .Dashboard .title {
+    font-size: 3rem;
+    padding: 3.5rem;
+  }
+  .course h3 {
+    font-size: 1.75rem;
+    padding: 2.25rem 0;
+  }
+  .assignment {
+    padding: 1.5rem 1rem;
+    font-size: 1.5rem;
+  }
+  .assignment .date {
+    margin-right: 1rem;
+  }
+}
+@media (max-width: 1600px) {
+  .Dashboard .container {
+    width: 44%;
+  }
+  .Dashboard h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  .Dashboard .title {
+    font-size: 2.5rem;
+    padding: 3rem;
+  }
+  .course {
+    padding: 1.5rem;
+    margin: 0 0 2rem 0;
+  }
+  .course h3 {
+    font-size: 1.5rem;
+    padding: 2rem 0;
+  }
+  .assignment {
+    margin: 1rem 0;
+    padding: 1rem;
+    font-size: 1rem;
+  }
+  .assignment .date {
+    margin-right: 1rem;
+  }
+}
+@media (max-width: 1440px) {
+  .Dashboard main {
+    padding: 2rem 1rem 0 0;
+  }
+  .Dashboard .container {
+    width: 42%;
+  }
+}
+@media (max-width: 1200px) {
+  .Dashboard .container {
+    margin: 0 0 0 2rem;
+    width: 44%;
+  }
+  .Dashboard h2 {
+    font-size: 1.8rem;
+  }
+  .Dashboard .title {
+    font-size: 2rem;
+    padding: 2.5rem;
+  }
+  .course {
+    margin: 0 0 1.3rem 0;
+  }
+}
+@media (max-width: 1024px) {
+  .Dashboard main {
+    flex-direction: column;
+  }
+  .Dashboard .container {
+    margin: 0 0 2rem 2rem;
+    width: 92%;
+  }
+}
+@media (max-width: 768px) {
+  .Dashboard .title,
+  .Dashboard main {
+    margin-left: 1.5rem;
+  }
+}
+@media (max-width: 500px) {
+  .Dashboard .container {
+    width: 90%;
+  }
+  .Dashboard h2 {
+    font-size: 1.5rem;
+  }
+  .Dashboard .title {
+    font-size: 1.8rem;
+    padding: 2.3rem;
+  }
+  .course h3 {
+    font-size: 1.3rem;
+    padding: 1.5rem 0;
+  }
+}
+@media (max-width: 375px) {
+  .Dashboard .container {
+    width: 88%;
+  }
+  .Dashboard h2 {
+    font-size: 1.2rem;
+  }
+  .Dashboard .title {
+    font-size: 1.7rem;
+    padding: 2.3rem;
+  }
+  .course h3 {
+    font-size: 1.15rem;
+    padding: 1.5rem 0;
+  }
+}

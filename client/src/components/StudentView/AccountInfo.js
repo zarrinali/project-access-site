@@ -1,7 +1,16 @@
 import "./AccountInfo.css";
-import React from "react";
+import React, { useEffect } from "react";
+import axios from "axios";
 
 function AccountInfo() {
+    useEffect(() => {
+        axios
+            .get(`${window.location.origin.toString()}/api/user/profile`)
+            .then((res) => {
+                console.log(res);
+            });
+    });
+
     return (
         <div className="container">
             <p className="header"> Student Profile </p> 

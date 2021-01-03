@@ -1,38 +1,136 @@
-#title {
-    border-radius: 15px;
-    font-size: x-large;
-    background: #FDA929; 
-    padding: 50px; 
-    width: 1000px; 
-    height: 150px;
-    margin-left: 450px;
-    bottom: 5000px;
-    position: relative;
-    margin-top: 90px;
+.Introduction {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
 }
 
-#description {
-    border-radius: 15px;
-    font-size: large;
-    background:	#00B497; 
-    width: 1000px;
-    height: 600px;
-    padding: 20px; 
-    margin-left: 450px;
-    bottom: 5000px;
-    position: relative;
-    text-align: center;
+.Introduction .content {
+  width: 100%;
+  padding: 3rem 6rem;
+}
+
+.Introduction .title {
+  border-radius: 15px;
+  background: #fda929;
+  padding: 50px 0;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.Introduction #title {
+  font-size: 4rem;
+}
+
+.Introduction #description {
+  border-radius: 15px;
+  font-size: 2.25rem;
+  background: #00b497;
+  padding: 4rem;
+  text-align: center;
+  margin: 0 auto 2rem;
+  line-height: 3.5rem;
+}
+
+.Introduction .middle {
+  margin: 2rem 0;
 }
 
 #descr2 {
-    border-radius: 15px;
-    font-size: large;
-    background:	#00B497; 
-    width: 1000px;
-    padding: 20px; 
-    margin-left: 450px;
-    bottom: 5000px;
-    position: relative;
-    margin-top: 90px;
-    text-align: center;
+  border-radius: 15px;
+  font-size: 2.25rem;
+  line-height: 3.5rem;
+  background: #00b497;
+  padding: 4rem;
+  text-align: center;
+  margin: 0 auto;
+}
+
+@media (max-width: 2200px) {
+  .Introduction #title {
+    font-size: 3.5rem;
+  }
+  .Introduction #description,
+  #descr2 {
+    font-size: 1.75rem;
+    line-height: 2.8rem;
+  }
+}
+@media (max-width: 1800px) {
+  .Introduction .content {
+    padding: 2rem 4rem;
+  }
+  .Introduction #title {
+    font-size: 3rem;
+  }
+  .Introduction #description,
+  #descr2 {
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    padding: 3rem;
+  }
+  .Introduction .middle {
+    margin: 1.5rem 0;
+  }
+}
+@media (max-width: 1600px) {
+  .Introduction #title {
+    font-size: 2.5rem;
+  }
+  .Introduction #description,
+  #descr2 {
+    font-size: 1rem;
+    line-height: 2rem;
+    padding: 2.5rem;
+  }
+  .Introduction .middle {
+    margin: 1.25rem 0;
+  }
+}
+@media (max-width: 1440px) {
+  .Introduction .content {
+    padding: 2rem 3rem;
+  }
+  .Introduction .title {
+    padding: 30px 10px;
+    margin-bottom: 2rem;
+  }
+}
+@media (max-width: 1200px) {
+  .Introduction #title {
+    font-size: 2rem;
+  }
+  .Introduction #description,
+  #descr2 {
+    padding: 2rem;
+  }
+}
+@media (max-width: 768px) {
+  .Introduction .title {
+    margin-left: 1.5rem;
+  }
+  .Introduction #description,
+  #descr2 {
+    margin-left: 1.5rem;
+  }
+}
+@media (max-width: 500px) {
+  .Introduction .content {
+    padding: 1.5rem;
+  }
+  .Introduction .title {
+    padding: 20px 10px;
+  }
+  .Introduction #title {
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+  }
+  .Introduction #description,
+  #descr2 {
+    padding: 1.5rem;
+  }
+}
+@media (max-width: 375px) {
+  .Introduction #title {
+    font-size: 1.7rem;
+  }
 }

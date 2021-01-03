@@ -64,7 +64,6 @@
 }
 
 .Login button {
-  /* width: 45%; */
   padding: 0.5rem 4rem;
   border-radius: 50px;
   border: none;
@@ -79,6 +78,7 @@
 
 .Login button:hover {
   background-color: #2a3038;
+  cursor: pointer;
 }
 
 .Login input:focus,

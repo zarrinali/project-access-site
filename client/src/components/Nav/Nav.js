@@ -24,13 +24,10 @@ class Nav extends Component {
             </button>
             <ul className={this.state.toggle ? 'show-nav' : ''}>
               <li>
-                <a href="/program">Program</a>
+                <a href="/program">Our Program</a>
               </li>
               <li>
                 <a href="/bootcamp">Bootcamp</a>
-              </li>
-              <li>
-                <a href="/">Events</a>
               </li>
               <li>
                 <a href="/signup">Sign Up</a>

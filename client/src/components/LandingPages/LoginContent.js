@@ -3,6 +3,7 @@ import styles from './LoginContent.module.css';
 import logo from '../../assets/images/austria.png';
 import key from '../../assets/images/logo_key_white.png';
 import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 
 class LoginContent extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class LoginContent extends React.Component {
     this.state = {
       email: '',
       password: '',
+      isAuth: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -35,18 +37,9 @@ class LoginContent extends React.Component {
     };
 
     axios
-      .post('http://localhost:9000/auth/login', { user })
+      .post(`${window.location.origin.toString()}/api/auth/login`, { user })
       .then((res) => {
-        console.log(res);
-        return res;
-      })
-      .then((res) => {
-        return (
-          <div>
-            {res.data.token}
-            {res.data.message}
-          </div>
-        );
+        this.props.history.push('/dashboard');
       })
       .catch((err) => console.log(err));
   }
@@ -93,4 +86,4 @@ class LoginContent extends React.Component {
   }
 }
 
-export default LoginContent;
+export default withRouter(LoginContent);

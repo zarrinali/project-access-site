@@ -7,26 +7,64 @@ const jwt = require('jsonwebtoken');
  * @param {object} next
  */
 function authenticateToken(req, res, next) {
-    const authHeader = req.headers.authorization;
+    const cookies = req.cookies;
+    const token = cookies.authorization;
 
     // Check for authorization in header and the first keyword
-    if (authHeader !== undefined && authHeader.split(' ')[0] === 'JWT') {
-        const tokens = authHeader.split(' ');
-
+    if (token) {
         // Verify with secret token
-        jwt.verify(tokens[1], process.env.SECRET_ACCESS_TOKEN, (err, decode) => {
+        jwt.verify(token, process.env.SECRET_ACCESS_TOKEN, (err, decode) => {
             if (err) {
-                req.user = undefined;
-                return res.status(403).json({
-                    message: 'Unauthorized access to the requested resources.',
+                res.clearCookie('authorization');
+                res.clearCookie('_uid');
+                req._uid = undefined;
+
+                return next();
+            }
+
+            if (!cookies._uid) {
+                res.cookie('_uid', decode._id, {
+                    httpOnly: true,
+                    maxAge: process.env.JWT_EXPIRY_SECONDS * 1000,
                 });
             }
-            req.user = decode;
+            req._uid = decode._id;
+
+            refreshToken(decode, res);
+
             next();
         });
     } else {
-        req.user = undefined;
+        res.clearCookie('_uid');
+        req._uid = undefined;
         next();
+    }
+}
+
+/**
+ * Authenticate the token to validate the user
+ * @param {object} payload
+ * @param {object} res
+ */
+function refreshToken(payload, res) {
+    const timeNow = Math.round(Number(new Date()) / 1000);
+
+    if (payload.exp - timeNow <= 300) {
+        const newToken = jwt.sign({
+                email: payload.email,
+                _id: payload._id,
+            },
+            process.env.SECRET_ACCESS_TOKEN, {
+                algorithm: 'HS256',
+                expiresIn: process.env.JWT_EXPIRY_SECONDS + 's',
+            }
+        );
+
+        // Give the user a token to authenticate
+        res.cookie('authorization', newToken, {
+            httpOnly: true,
+            maxAge: process.env.JWT_EXPIRY_SECONDS * 1000,
+        });
     }
 }
 

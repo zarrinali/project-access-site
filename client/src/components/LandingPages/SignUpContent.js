@@ -3,11 +3,14 @@ import styles from './SignUpContent.module.css';
 import logo from '../../assets/images/austria.png';
 import key from '../../assets/images/logo_key_white.png';
 import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 
 class SignUpContent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      first: '',
+      last: '',
       email: '',
       password: '',
     };
@@ -32,22 +35,16 @@ class SignUpContent extends React.Component {
     const user = {
       email: this.state.email,
       password: this.state.password,
+      firstName: this.state.first,
+      lastName: this.state.last,
     };
 
     axios
-      .post('http://localhost:9000/auth/signup', { user })
+      .post(`${window.location.origin.toString()}/api/auth/signup`, { user })
       .then((res) => {
-        console.log(res);
-        return res;
-      })
-      .then((res) => {
-        return (
-          <div>
-            {res.data.user.record_id}
-            {res.data.user.email}
-            {res.data.message}
-          </div>
-        );
+        if (res.data.results) {
+          this.props.history.push('/confirm');
+        }
       })
       .catch((err) => console.log(err));
   }
@@ -63,6 +60,30 @@ class SignUpContent extends React.Component {
             <h1>Sign Up</h1>
             <img src={key} className={styles.key} alt="key" />
             <form onSubmit={this.handleSubmit}>
+              <div className={styles.name}>
+                <div>
+                  <label for="first">First Name</label>
+                  <input
+                    type="text"
+                    id="first"
+                    name="first"
+                    value={this.state.first}
+                    onChange={this.handleChange}
+                    required
+                  />
+                </div>
+                <div>
+                  <label for="first">Last Name</label>
+                  <input
+                    type="text"
+                    id="last"
+                    name="last"
+                    value={this.state.last}
+                    onChange={this.handleChange}
+                    required
+                  />
+                </div>
+              </div>
               <label for="email">Email</label>
               <input
                 type="email"
@@ -93,4 +114,4 @@ class SignUpContent extends React.Component {
   }
 }
 
-export default SignUpContent;
+export default withRouter(SignUpContent);
