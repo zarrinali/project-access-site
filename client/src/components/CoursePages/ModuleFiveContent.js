@@ -34,11 +34,10 @@ function ModuleFiveContent() {
             </li>
           </ul>
         </div>
-        <button className="submission-button">
-          <a id="submission" href="https://airtable.com/shrhdPxxxgZR4ySI0">
-            Submit Work
-          </a>
-        </button>
+
+        <a id="submission" href="https://airtable.com/shrhdPxxxgZR4ySI0">
+          <button className="submission-button">Submit Work</button>
+        </a>
       </div>
     </div>
   );

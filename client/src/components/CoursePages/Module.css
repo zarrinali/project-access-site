@@ -63,16 +63,13 @@
 /* Submit Button */
 .submission-button {
   background-color: #fda929;
+  color: white;
   border-radius: 15px;
   border: none;
   padding: 2rem 3rem;
   font-size: 2.5rem;
   margin-top: 4rem;
   cursor: pointer;
-}
-
-#submission {
-  color: white;
 }
 
 @media (max-width: 2200px) {

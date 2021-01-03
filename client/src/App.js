@@ -63,7 +63,11 @@ class App extends Component {
             <PrivateRoute component={CreateAssignments} path="/create_assignments" exact />
 
             <PrivateRoute component={ModuleContent} path="/course/:course" exact />
-            <PrivateRoute component={ModuleSubmissionContent} path="/course/submission/:course" exact />
+            <PrivateRoute
+              component={ModuleSubmissionContent}
+              path="/course/submission/:course"
+              exact
+            />
 
             {/* <Route exact path="/">
               <Home />

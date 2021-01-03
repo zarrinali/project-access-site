@@ -319,11 +319,9 @@ function ModuleOneContent() {
           </div>
         </div>
 
-        <button className="submission-button">
-          <a id="submission" href="https://airtable.com/shr1MiQgV6PV95kqC">
-            Submit Work
-          </a>
-        </button>
+        <a id="submission" href="https://airtable.com/shr1MiQgV6PV95kqC">
+          <button className="submission-button">Submit Work</button>
+        </a>
       </div>
     </div>
   );
