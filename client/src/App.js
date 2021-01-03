@@ -22,6 +22,8 @@ import AdminDashboard from './AdminDashboard.js';
 import CreateAssignments from './CreateAssignments.js';
 import PublicRoute from './PublicRoute.js';
 import PrivateRoute from './PrivateRoute.js';
+import ModuleContent from './components/CoursePages/ModuleContent.js';
+import ModuleSubmissionContent from './components/CoursePages/ModuleSubmissionContent';
 
 class App extends Component {
   constructor(props) {
@@ -59,6 +61,9 @@ class App extends Component {
             <PrivateRoute component={Feedback} path="/feedback" exact />
             <PrivateRoute component={AdminDashboard} path="/admin_dashboard" exact />
             <PrivateRoute component={CreateAssignments} path="/create_assignments" exact />
+
+            <PrivateRoute component={ModuleContent} path="/course/:course" exact />
+            <PrivateRoute component={ModuleSubmissionContent} path="/course/submission/:course" exact />
 
             {/* <Route exact path="/">
               <Home />

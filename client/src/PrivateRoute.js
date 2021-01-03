@@ -14,7 +14,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
       await checkLogin()
         .then((res) => {
           setIsLogin(res);
-          setIsLoaded(false);
+          setIsLoaded(true);
         })
         .catch((err) => {
           console.log(err);

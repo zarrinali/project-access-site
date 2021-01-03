@@ -27,8 +27,8 @@ class CourseSideNav extends React.Component {
       .then((res) => {
         res.data.forEach(function (course) {
           courseList.push(
-            <a href={`/module${course.CourseNumber}`}>
-              {course.CourseName}
+            <a href={`/course/${course.CourseLink}`}>
+              {course.CourseNumber}
             </a>
           );
         });
