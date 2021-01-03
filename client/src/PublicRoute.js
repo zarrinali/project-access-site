@@ -13,7 +13,7 @@ const PublicRoute = ({ component: Component, restricted, ...rest }) => {
       await checkLogin()
         .then((res) => {
           setIsLogin(res);
-          setIsLoaded(true);
+          setIsLoaded(false);
         })
         .catch((err) => {
           console.log(err);
@@ -28,7 +28,7 @@ const PublicRoute = ({ component: Component, restricted, ...rest }) => {
     <Route
       {...rest}
       render={(props) =>
-        isLogin && restricted ? (<Redirect to="/dashboard" />) : <Component {...props} />
+        isLogin && restricted ? <Redirect to="/dashboard" /> : <Component {...props} />
       }
     />
   ) : (

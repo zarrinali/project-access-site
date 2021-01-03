@@ -1,44 +1,186 @@
-.header {
-    border-radius: 15px;
-    font-size: xx-large;
-    background: #3B8CD9;
-    padding: 50px; 
-    width: 1000px; 
-    height: 150px;
-    margin-left: 450px;
-    bottom: 5000px;
-    position: relative;
-    margin-top: 90px;
+.Account {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+}
+.Account .content {
+  width: 100%;
+}
+.Account main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 3rem 1rem 0;
+}
+.Account .container {
+  margin: 0 0 0 3rem;
+  width: 45%;
+}
+.Account h2 {
+  font-size: 3.5rem;
+  font-weight: 500;
+  font-family: 'Poppins', 'Ariel';
+  margin-bottom: 2.5rem;
 }
 
-.studentinfo {
-    border-radius: 15px;
-    font-size: large;
-    text-align: left;
-    background: #FDA929; 
-    padding: 50px; 
-    width: 800px; 
-    height: 200px;
-    margin-left: 650px;
-    bottom: 5000px;
-    position: relative;
-    margin-top: 90px;
-    line-height: 1.6;
+/* Header */
+.Account .title {
+  font-size: 4rem;
+  font-weight: 600;
+  font-family: 'Poppins', 'Ariel';
+  padding: 4rem;
+  box-shadow: 2px 2px 10px #ddd;
+}
+.info {
+  padding: 2rem 2.5rem;
+  border-radius: 15px;
+  background: #fda929;
+  color: #2a3038;
+}
+.info div {
+  display: flex;
+  align-items: start;
+  margin: 1.5rem 0;
+}
+.info div:first-child {
+  margin-top: 0;
+}
+.info div:last-child {
+  margin-bottom: 0;
+}
+.info h5 {
+  margin-right: 1rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.info p {
+  font-size: 1.7rem;
+  line-height: 2rem;
+  align-self: flex-start;
 }
 
-.programinfo {
-    border-radius: 15px;
-    font-size: large;
-    text-align: left;
-    background: #FDA929; 
-    padding: 50px; 
-    width: 800px; 
-    height: 200px;
-    margin-left: 650px;
-    bottom: 5000px;
-    position: relative;
-    margin-top: 90px;
-    line-height: 1.6;
+@media (max-width: 2200px) {
+  .Account h2 {
+    font-size: 3rem;
+  }
+  .Account .title {
+    font-size: 3.5rem;
+  }
+  .info h5 {
+    font-size: 1.8rem;
+  }
+  .info p {
+    font-size: 1.5rem;
+  }
 }
-
-
+@media (max-width: 1800px) {
+  .Account h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  .Account .title {
+    font-size: 3rem;
+    padding: 3.5rem;
+  }
+}
+@media (max-width: 1600px) {
+  .Account .container {
+    width: 44%;
+  }
+  .Account h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  .Account .title {
+    font-size: 2.5rem;
+    padding: 3rem;
+  }
+  .info h5 {
+    font-size: 1.4rem;
+  }
+  .info p {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+  }
+}
+@media (max-width: 1440px) {
+  .Account main {
+    padding: 2rem 1rem 0 0;
+  }
+  .Account .container {
+    width: 42%;
+  }
+}
+@media (max-width: 1200px) {
+  .Account .container {
+    margin: 0 0 0 2rem;
+    width: 44%;
+  }
+  .Account h2 {
+    font-size: 1.8rem;
+  }
+  .Account .title {
+    font-size: 2rem;
+    padding: 2.5rem;
+  }
+}
+@media (max-width: 1024px) {
+  .Account main {
+    flex-direction: column;
+  }
+  .Account .container {
+    margin: 0 0 2rem 2rem;
+    width: 92%;
+  }
+  .info h5 {
+    font-size: 1.3rem;
+  }
+  .info p {
+    font-size: 1.1rem;
+    line-height: 1.4rem;
+  }
+}
+@media (max-width: 768px) {
+  .Account .title,
+  .Account main {
+    margin-left: 1.5rem;
+  }
+  .info {
+    padding: 1.5rem 2rem;
+  }
+}
+@media (max-width: 500px) {
+  .Account .container {
+    width: 90%;
+  }
+  .Account h2 {
+    font-size: 1.5rem;
+  }
+  .Account .title {
+    font-size: 1.8rem;
+    padding: 2.3rem;
+  }
+  .info h5 {
+    font-size: 1.2rem;
+  }
+  .info p {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 375px) {
+  .Account .container {
+    width: 88%;
+  }
+  .Account .title {
+    font-size: 1.7rem;
+    padding: 2.3rem;
+  }
+  .info div {
+    flex-direction: column;
+    margin-bottom: 0.5rem 0;
+  }
+  .info h5 {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+  }
+}

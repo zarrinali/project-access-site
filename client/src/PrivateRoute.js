@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { checkLogin } from './utils';
 import Loading from './components/Loading/Loading';
+import { faTruckMonster } from '@fortawesome/free-solid-svg-icons';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -13,7 +14,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
       await checkLogin()
         .then((res) => {
           setIsLogin(res);
-          setIsLoaded(true);
+          setIsLoaded(false);
         })
         .catch((err) => {
           console.log(err);
