@@ -8,6 +8,7 @@ class SideNav extends React.Component {
   state = {
     toggle: false,
   };
+
   Toggle = () => {
     this.setState({ toggle: !this.state.toggle });
   };

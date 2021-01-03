@@ -2,14 +2,45 @@ import React from 'react';
 import './CourseSideNav.css';
 import logo from '../../assets/images/austria.png';
 import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
+import axios from 'axios';
 
 class CourseSideNav extends React.Component {
-  state = {
-    toggle: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      toggle: false,
+      courses: [],
+    };
+
+    this.Toggle = this.Toggle.bind(this);
+  }
+  
   Toggle = () => {
     this.setState({ toggle: !this.state.toggle });
   };
+
+  componentDidMount() {
+    const courseList = [];
+
+    axios
+      .get(`${window.location.origin.toString()}/api/course/courseList`)
+      .then((res) => {
+        res.data.forEach(function (course) {
+          courseList.push(
+            <a href={`/module${course.CourseNumber}`}>
+              {course.CourseName}
+            </a>
+          );
+        });
+
+        this.setState({
+          courses: courseList
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   render() {
     return (
@@ -25,6 +56,7 @@ class CourseSideNav extends React.Component {
             </a>
             <div>
               <a href="/prebootcampcourse">Pre-Bootcamp Course</a>
+              {this.state.courses}
               <a href="/module1">Module One</a>
               <a href="/module2">Module Two</a>
               <a href="/module3">Module Three</a>

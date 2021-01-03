@@ -5,9 +5,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const mailing = require('../mailing');
-const {
-  makeVerificationToken
-} = require('./verificationControllers');
+const { makeVerificationToken } = require('./verificationControllers');
 
 /**
  * For resources that require authorization
@@ -74,6 +72,18 @@ router.get('/isLoggedIn', function (req, res) {
 });
 
 /**
+ * Check if the user is an admin
+ * @return {boolean}
+ */
+router.get('/isAdmin', async function (req, res) {
+  const user = await base('Persons').find(req._uid);
+  if (user.fields.PersonRole === 'Admin') {
+    return res.status(200).send(true);
+  }
+  return res.status(200).send(false);
+});
+
+/**
  * Send email and password to DB for registration
  */
 router.post('/signup', async function (req, res, next) {
@@ -85,7 +95,8 @@ router.post('/signup', async function (req, res, next) {
       const hashPassword = bcrypt.hashSync(req.body.user.password, saltRounds);
 
       // Create a new user in DB
-      base('Persons').create({
+      base('Persons').create(
+        {
           PersonEmail: req.body.user.email,
           PersonPassword: hashPassword,
           PersonFirstName: req.body.user.firstName,
@@ -139,11 +150,13 @@ router.post('/login', async function (req, res, next) {
 
       // Compare user's password and the password in DB
       if (bcrypt.compareSync(req.body.user.password, user.PersonPassword)) {
-        const token = jwt.sign({
+        const token = jwt.sign(
+          {
             _id: user.PersonID,
             email: user.PersonEmail,
           },
-          process.env.SECRET_ACCESS_TOKEN, {
+          process.env.SECRET_ACCESS_TOKEN,
+          {
             algorithm: 'HS256',
             expiresIn: process.env.JWT_EXPIRY_SECONDS + 's',
           }

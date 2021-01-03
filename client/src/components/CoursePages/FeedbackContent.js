@@ -9,15 +9,29 @@ class FeedbackContent extends React.Component {
     super(props);
     this.state = {
       feedback: [],
+      studentId: '',
     };
   }
 
   componentDidMount() {
     axios
-      .get(`${window.location.origin.toString()}/api/course/assignmentDeadlines`)
+      .get(`${window.location.origin.toString()}/api/course/studentInformation`)
+      .then((res) => {
+        console.log(res.data);
+        this.setState({
+          studentId: res.data.StudentID,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    axios
+      .get(`${window.location.origin.toString()}/api/course/assignmentFeedback`)
       .then((res) => {
         const feedbackList = [];
         let num = 1;
+
         res.data.assignments.forEach(function (assignment) {
           feedbackList.push(
             <div>
@@ -33,11 +47,14 @@ class FeedbackContent extends React.Component {
         this.setState({
           feedback: feedbackList,
         });
+
+        console.log(this.state.studentId);
       })
       .catch((err) => {
         console.log(err);
       });
   }
+
   render() {
     return (
       <div className="Module Feedback">
@@ -47,6 +64,23 @@ class FeedbackContent extends React.Component {
             <h1 id="title">Feedback</h1>
           </header>
           <main>
+            {this.state.studentId ?
+              <iframe
+                class="airtable-embed airtable-dynamic-height"
+                src={`https://airtable.com/embed/shrWaflUNFdZZPyNa?backgroundColor=yellow&prefill_StudentID=${this.state.studentId}`}
+                frameborder="0"
+                onmousewheel=""
+                width="100%"
+                height="1382px"
+                style={{
+                  width: '100%',
+                  height: '1384px',
+                  background: 'transparent',
+                  border: '1px solid #ccc',
+                }}
+                title="Airtable Form"
+              ></iframe> : ""
+            }
             {this.state.feedback}
             {/* <div>
               <div className="lesson">
