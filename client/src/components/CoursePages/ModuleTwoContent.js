@@ -28,6 +28,11 @@ function ModuleTwoContent() {
             </li>
           </ul>
         </div>
+        <button className="submission-button">
+          <a id="submission" href="https://airtable.com/shrGNMmEc5z4lA9ZW">
+            Submit Work
+          </a>
+        </button>
       </div>
     </div>
   );

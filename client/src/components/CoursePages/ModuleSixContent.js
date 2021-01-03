@@ -28,6 +28,11 @@ function ModuleSixContent() {
             </li>
           </ul>
         </div>
+        <button className="submission-button">
+          <a id="submission" href="https://airtable.com/shrKytx6QNUv8Y1cx">
+            Submit Work
+          </a>
+        </button>
       </div>
     </div>
   );

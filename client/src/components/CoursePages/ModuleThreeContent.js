@@ -30,6 +30,11 @@ function ModuleThreeContent() {
             </li>
           </ul>
         </div>
+        <button className="submission-button">
+          <a id="submission" href="https://airtable.com/shrY40UWUokK7a9AD">
+            Submit Work
+          </a>
+        </button>
       </div>
     </div>
   );
