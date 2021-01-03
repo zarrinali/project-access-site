@@ -4,8 +4,8 @@ import { checkLogin } from './utils';
 import Loading from './components/Loading/Loading';
 
 const PublicRoute = ({ component: Component, restricted, ...rest }) => {
-  const [isLoaded, setIsLoaded] = useState(true);
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
     // make a call to login API to check user's authentication
@@ -28,7 +28,7 @@ const PublicRoute = ({ component: Component, restricted, ...rest }) => {
     <Route
       {...rest}
       render={(props) =>
-        isLogin && restricted ? (<Redirect to="/dashboard" />) : <Component {...props} />
+        isLogin && restricted ? <Redirect to="/dashboard" /> : <Component {...props} />
       }
     />
   ) : (

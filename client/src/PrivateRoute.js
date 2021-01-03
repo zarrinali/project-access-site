@@ -5,8 +5,8 @@ import Loading from './components/Loading/Loading';
 import { faTruckMonster } from '@fortawesome/free-solid-svg-icons';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
-  const [isLoaded, setIsLoaded] = useState(true);
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
     // make a call to login API to check user's authentication
