@@ -72,9 +72,7 @@ router.get('/assignmentFeedback', loginRequired, async function (req, res, next)
       }
     });
 
-    return res.status(200).json({
-      assignments: assignments,
-    });
+    return res.status(200).json(assignments);
   } catch (err) {
     console.log(err);
     return next(err);
