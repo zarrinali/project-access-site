@@ -94,7 +94,7 @@ class DashboardContent extends React.Component {
               <section className="container assignments">
                 <div>
                   <h2>Upcoming Assignments</h2>
-                  <div className="assignment">
+                  {/* <div className="assignment">
                     <p className="date">11/4</p>
                     <p className="name">Assignment 1</p>
                   </div>
@@ -105,12 +105,12 @@ class DashboardContent extends React.Component {
                   <div className="assignment">
                     <p className="date">11/4</p>
                     <p className="name">Assignment 3</p>
-                  </div>
+                  </div> */}
                   {this.state.assignments}
                 </div>
                 <div>
                   <h2>Late Assignments</h2>
-                  <div className="assignment">
+                  {/* <div className="assignment">
                     <p className="date">11/4</p>
                     <p className="name">Assignment 1</p>
                   </div>
@@ -121,7 +121,7 @@ class DashboardContent extends React.Component {
                   <div className="assignment">
                     <p className="date">11/4</p>
                     <p className="name">Assignment 3</p>
-                  </div>
+                  </div> */}
                   {this.state.lateAssignments}
                 </div>
               </section>
