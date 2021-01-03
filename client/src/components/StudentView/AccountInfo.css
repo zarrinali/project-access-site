@@ -11,19 +11,29 @@
     margin-top: 90px;
 }
 
-.studentinfo {
+
+.details {
     border-radius: 15px;
-    font-size: large;
+    font-size: x-large;
     text-align: left;
-    background: #FDA929; 
+    background: #FDA929;
     padding: 50px; 
-    width: 800px; 
-    height: 200px;
-    margin-left: 650px;
-    bottom: 5000px;
-    position: relative;
+    width: 800px;
+    margin-left: 3rem; 
     margin-top: 90px;
     line-height: 1.6;
+}
+
+.mentordetails  {
+    font-size: x-large;
+    background: #FDA929;
+    text-align: left; 
+    border-radius: 15px;
+    padding: 50px; 
+    width: 800px;
+    line-height: 1.6;
+    margin-left: 3rem;
+    margin-top: 90px;
 }
 
 .programinfo {
@@ -41,4 +51,20 @@
     line-height: 1.6;
 }
 
+.Account .title {
+    font-size: 3rem;
+    font-weight: 600;
+    font-family: 'Poppins', 'Ariel';
+    padding: 3rem;
+    box-shadow: 2px 2px 10px #ddd;
+}
 
+.Account .content {
+    width: 100%;
+}
+
+.Account {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+  }
