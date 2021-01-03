@@ -85,7 +85,7 @@ class DashboardContent extends React.Component {
                     <h3>Pre-Bootcamp Course</h3>
                   </div>
                 </a>
-                <a href="/">
+                <a href="/prebootcampcourse">
                   <div className="course">
                     <h3>Post-Bootcamp Course</h3>
                   </div>
