@@ -65,11 +65,15 @@
 
 /* Target Uni */
 .target_uni {
+  background-color: #eee;
+}
+.target_uni_container {
   width: 70%;
-  margin: 10rem auto;
+  padding: 10rem 0;
+  margin: 0 auto;
   text-align: center;
 }
-.target_uni > p {
+.target_uni_container > p {
   width: 65%;
   margin: 0 auto 2rem;
   font-size: 1.7rem;
@@ -116,9 +120,6 @@
 
 /* Help */
 .help {
-  background-color: #eee;
-}
-.help_container {
   width: 55%;
   padding: 7.5rem 0;
   margin: 0 auto;
@@ -166,6 +167,25 @@
 .help button a {
   color: white;
   font-weight: 600;
+}
+
+/* Event */
+.event {
+  background-color: #eee;
+}
+.event_container {
+  width: 55%;
+  padding: 10rem 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.event_container h4 {
+  font-size: 1.8rem;
+  margin-top: 2rem;
+  font-family: 'Poppins', 'Ariel';
 }
 
 /* Sign Up */
@@ -271,7 +291,7 @@
     font-size: 2.1rem;
     line-height: 2.7rem;
   }
-  .target_uni > p {
+  .target_uni_container > p {
     width: 70%;
     font-size: 1.5rem;
     line-height: 2.3rem;
@@ -305,6 +325,9 @@
   .help button {
     font-size: 1.5rem;
     width: 20%;
+  }
+  .event_container h4 {
+    font-size: 1.6rem;
   }
   .signup h3 {
     font-size: 2.1rem;
@@ -355,10 +378,10 @@
     font-size: 1.8rem;
     line-height: 2.5rem;
   }
-  .target_uni {
-    margin: 7rem auto;
+  .target_uni_container {
+    padding: 7rem 0;
   }
-  .target_uni > p {
+  .target_uni_container > p {
     font-size: 1.2rem;
     line-height: 2rem;
   }
@@ -388,7 +411,7 @@
     font-size: 6rem;
     margin: 0 3rem;
   }
-  .help_container {
+  .help {
     padding: 5rem 0;
   }
   .help p {
@@ -397,6 +420,12 @@
   }
   .help button {
     font-size: 1.05rem;
+  }
+  .event_container {
+    padding: 7rem 0;
+  }
+  .event_container h4 {
+    font-size: 1.4rem;
   }
   .testimonials_signup {
     margin: 7rem auto;
@@ -451,7 +480,7 @@
     line-height: 2rem;
   }
   .testimonials_signup,
-  .help_container {
+  .help {
     width: 65%;
   }
 }
@@ -462,7 +491,7 @@
     margin-bottom: 2rem;
   }
   .testimonials_signup,
-  .help_container {
+  .help {
     width: 70%;
   }
   .testimonials {
@@ -476,7 +505,7 @@
   .image_carousel img {
     max-height: 750px;
   }
-  .help_container {
+  .help {
     width: 80%;
   }
   .help button {
@@ -506,7 +535,7 @@
   .cta {
     margin-bottom: 0.5rem;
   }
-  .target_uni > p {
+  .target_uni_container > p {
     width: 90%;
   }
   .regions {
@@ -612,7 +641,7 @@
     top: -10%;
     left: 70px;
   }
-  .help_container {
+  .help {
     width: 90%;
   }
   .help button {

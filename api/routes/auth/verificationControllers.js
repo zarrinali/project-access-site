@@ -10,17 +10,15 @@ const cryptoLength = 10;
  * @return {object}
  */
 async function makeVerificationToken(recordId) {
-  const data = await base('RegistrationData').create([{
-    fields: {
-      verificationToken: recordId +
-        crypto({
-          length: cryptoLength,
-        }),
-      dateTime: new Date(),
-      persons: [recordId],
-    },
-  }, ]);
-  return data[0].fields.verificationToken;
+  const data = await base('RegistrationData').create({
+    RegistrationVerificationToken: recordId +
+      crypto({
+        length: cryptoLength,
+      }),
+    RegistrationDateTime: new Date(),
+    PersonID: [recordId],
+  });
+  return data.fields.RegistrationVerificationToken;
 }
 
 router.get('/verification/:verificationToken', async function (req, res, next) {
@@ -33,7 +31,7 @@ router.get('/verification/:verificationToken', async function (req, res, next) {
       .select({
         maxRecords: 1,
         view: 'Grid view',
-        filterByFormula: `{verificationToken} = "${token}"`,
+        filterByFormula: `{RegistrationVerificationToken} = "${token}"`,
       })
       .all();
 
@@ -43,7 +41,7 @@ router.get('/verification/:verificationToken', async function (req, res, next) {
       });
     }
 
-    if (userByToken[0].fields.isVerified[0]) {
+    if (userByToken[0].fields.PersonVerified[0]) {
       return res.status(200).json({
         message: 'This email is already verified.',
       });
@@ -53,14 +51,14 @@ router.get('/verification/:verificationToken', async function (req, res, next) {
       .select({
         maxRecords: 1,
         view: 'Grid view',
-        filterByFormula: `{recordId} = "${recordId}"`,
+        filterByFormula: `{PersonID} = "${recordId}"`,
       })
       .all();
 
-    if (userByToken[0].fields.email[0] === userByRecordId[0].fields.email) {
+    if (userByToken[0].fields.PersonEmail[0] === userByRecordId[0].fields.PersonEmail) {
       base('Persons').update(
         recordId, {
-          isVerified: true,
+          PersonVerified: true,
         },
         function (err) {
           if (err) {

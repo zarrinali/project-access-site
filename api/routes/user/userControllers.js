@@ -20,7 +20,7 @@ router.get('/profile', loginRequired, async function (req, res, next) {
         const userInfo = user.fields;
 
         return res.status(200).json({
-            email: userInfo.email,
+            email: userInfo.PersonEmail,
         });
     } catch (err) {
         return next(err);

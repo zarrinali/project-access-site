@@ -11,7 +11,7 @@ class LoginContent extends React.Component {
     this.state = {
       email: '',
       password: '',
-      isAuth: false,
+      disabled: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -28,8 +28,23 @@ class LoginContent extends React.Component {
     });
   }
 
+  handleClick(event) {
+    if (this.state.disabled) {
+      return;
+    }
+    this.setState({
+      disabled: true,
+    });
+  }
+
   handleSubmit(event) {
     event.preventDefault();
+
+    if (!this.state.disabled) {
+      this.setState({
+        disabled: true,
+      });
+    }
 
     const user = {
       email: this.state.email,
@@ -39,9 +54,16 @@ class LoginContent extends React.Component {
     axios
       .post(`${window.location.origin.toString()}/api/auth/login`, { user })
       .then((res) => {
-        this.props.history.push('/dashboard');
+        if (res.data.results) {
+          this.props.history.push('/dashboard');
+        }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        this.setState({
+          disabled: false,
+        });
+      });
   }
 
   render() {
@@ -73,7 +95,9 @@ class LoginContent extends React.Component {
                 onChange={this.handleChange}
                 required
               />
-              <button type="submit">Login</button>
+              <button type="submit" disabled={this.state.disabled}>
+                {this.state.disabled ? "Logging in" : "Login"}
+              </button>
             </form>
             <p className={styles.sign_up}>
               Don't have an account? <a href="/signup">Sign Up</a>
