@@ -15,7 +15,9 @@ class AccountInfo extends React.Component {
   componentDidMount() {
     axios.get(`${window.location.origin.toString()}/api/user/profile`).then((res) => {
       this.setState({
-        email: res.data.email,
+        email: res.data.PersonEmail,
+        fname: res.data.PersonFirstName,
+        lname: res.data.PersonLastName,
       });
       console.log(res);
     });
@@ -34,7 +36,7 @@ class AccountInfo extends React.Component {
               <div className="info">
                 <div>
                   <h5>Name: </h5>
-                  <p>Jane Doe</p>
+                  <p>{this.state.fname + " " + this.state.lname}</p>
                 </div>
                 <div>
                   <h5>Email: </h5>

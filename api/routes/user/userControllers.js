@@ -19,9 +19,7 @@ router.get('/profile', loginRequired, async function (req, res, next) {
         const user = await queryUser(req._uid);
         const userInfo = user.fields;
 
-        return res.status(200).json({
-            email: userInfo.PersonEmail,
-        });
+        return res.status(200).json(userInfo);
     } catch (err) {
         return next(err);
     }
